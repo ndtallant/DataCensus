@@ -1,0 +1,32 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Harris Data Census{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-fixed-top">
+    {{nav.mynavbar.render()}}
+    {{ super() }}
+    <!-- ... -->
+</div>
+{% endblock %}
+
+{% block content %}
+    <div style="padding-top: 65px">
+      <h1>Data</h1>
+    </div>
+
+    <div id='data_loop'>
+      <table>
+        {% for dataset in datasets %}
+          
+          <th> {{ dataset.name | title }} </th> 
+          <tr><th> Description: </th> 
+              <td> {{ dataset.description }} </td> </tr> 
+          {% if dataset.snippet %} 
+          <tr> {{ dataset.snippet }}</tr> 
+          {% endif %}
+        {% endfor %} 
+      </table>
+    </div>
+
+  {% endblock %}
+
