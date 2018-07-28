@@ -5,6 +5,7 @@ from flask import Flask, render_template, request
 from flask_debugtoolbar import DebugToolbarExtension
 from flask_bootstrap import Bootstrap
 from flask import Markup
+from models import DataSet, Researcher
 
 app = Flask(__name__)
 app.debug = True
@@ -23,10 +24,8 @@ nav.init_app(app)
 
 @app.route('/')
 def index():
-    hrs = DataSet(name='Health and Retirement Study (HRS)'
-            , description=('Longitudinal survey of adults aged 50+ and '
-                           'their spouses from 1996 to 2014.')) 
-    return render_template('index.html', datasets=[hrs])
+    datasets = test_content()
+    return render_template('index.html', datasets=datasets)
 
 @app.route('/about')
 def about():
@@ -38,8 +37,11 @@ def snippets():
         content = Markup(markdown(f.read()))    
     return render_template('snippets.html', content=content)
 
-class DataSet:
-    def __init__(self, name, description, snippet=None):
-        self.name = name
-        self.description = description
-        self.snippet = snippet
+def test_content():
+    hrs = DataSet(name='Health and Retirement Study'
+                , description=('Longitudinal survey of adults aged 50+ and '
+                           'their spouses from 1996 to 2014.')) 
+    fbi = DataSet(name='FBI Crime Data thing'
+                , description=('Data obtained from FBI API'))
+    return [hrs, fbi]
+

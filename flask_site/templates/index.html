@@ -1,4 +1,7 @@
 {% extends "bootstrap/base.html" %}
+{% block head %} {{ super() }}
+<link rel="stylesheet" href="../static/grids.css">
+{% endblock%}
 {% block title %}Harris Data Census{% endblock %}
 
 {% block navbar %}
@@ -11,22 +14,29 @@
 
 {% block content %}
     <div style="padding-top: 65px">
-      <h1>Data</h1>
+      <h1 style="color: #800000; padding-left: 10px;">
+          Data Sources 
+      </h1>
     </div>
 
-    <div id='data_loop'>
-      <table>
-        {% for dataset in datasets %}
-          
-          <th> {{ dataset.name | title }} </th> 
-          <tr><th> Description: </th> 
-              <td> {{ dataset.description }} </td> </tr> 
-          {% if dataset.snippet %} 
-          <tr> {{ dataset.snippet }}</tr> 
+    <div id="data_loop">
+      {% for dataset in datasets %}
+      <div class="dataset_grid">  
+          <h5 class="name"> {{ dataset.name | title }} </h5> 
+          <div class="description">
+            <h5>Description:</h5> 
+            <p> {{ dataset.description }} </p> 
+          </div> 
+          {% if dataset._other_attrs %} 
+            <div class="other_bits"> 
+              {{ dataset._other_attrs }} 
+            </div> 
           {% endif %}
-        {% endfor %} 
-      </table>
+      </div>
+      {% endfor %} 
     </div>
+
+    <!--  <img src="https://harris.uchicago.edu/themes/custom/harris_theme/imgs/nav-logo.png" alt="https://harris.uchicago.edu/themes/custom/harris_theme/imgs/nav-logo.png" class="transparent"> -->
 
   {% endblock %}
 
