@@ -23,9 +23,13 @@
       {% for dataset in datasets %}
       <div class="dataset_grid">  
           <div class="dataset_content"> 
-          <h5> {{ dataset.name }} </h5> 
-            <p> {{ dataset.description }} </p> 
-          </div> 
+              <h3 style="text-decoration: underline;">{{ dataset.name }}</h3> 
+              <p>{{ dataset.description }}</p> 
+          
+          {% if dataset.snippet %}
+          <code>{{ dataset.snippet }}</code>
+          {% endif %}
+         </div>
       </div>
       {% endfor %} 
     </div>

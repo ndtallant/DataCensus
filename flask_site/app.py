@@ -43,5 +43,9 @@ def test_content():
                            'their spouses from 1996 to 2014.')) 
     fbi = DataSet(name='FBI Crime Data thing'
                 , description=('Data obtained from FBI API'))
-    return [hrs, fbi]
+    
+    others = [DataSet(name=('Thing {}'.format(i))
+                , description=('OK **hello**') 
+                , snippet=('x = 5')) for i in range(1, 31)]
+    return [hrs, fbi] + others
 

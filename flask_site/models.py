@@ -14,6 +14,7 @@ class DataSet:
         self.name = name
         self.acronymn = acronymn
         self.description = description
+        self.snippet = 'Code Snippet' 
         self._other_attrs = self._parse_attrs(**kwargs)
 
     def _validate(self, name, description):
