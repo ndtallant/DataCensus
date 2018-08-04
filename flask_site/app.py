@@ -6,8 +6,17 @@ from flask_debugtoolbar import DebugToolbarExtension
 from flask_bootstrap import Bootstrap
 from flask import Markup
 from models import DataSet, Researcher
+import os
+from flask_sqlalchemy import SQLAlchemy
+
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] =\
+        'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+
 app.debug = True
 bootstrap = Bootstrap(app)
 nav = Nav()
@@ -33,9 +42,13 @@ def about():
 
 @app.route('/snippets')
 def snippets():
-    with open('snippets.md', 'r') as f: 
-        content = Markup(markdown(f.read()))    
-    return render_template('snippets.html', content=content)
+    #with open('snippets.md', 'r') as f: 
+    #    content = Markup(markdown(f.read()))    
+    return render_template('test_snippet_thing.html') #, content=content)
+
+@app.route('/snippet/<name>')
+def snippet_example(name):
+    return name 
 
 def test_content():
     hrs = DataSet(name='Health and Retirement Study'
