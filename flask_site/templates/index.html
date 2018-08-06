@@ -27,7 +27,11 @@
               <p>{{ dataset.description }}</p> 
           
           {% if dataset.snippet %}
+          <b>Code Example:</b>
+          <br>
+          {% autoescape false %}
           <code>{{ dataset.snippet }}</code>
+          {% endautoescape %} 
           {% endif %}
          </div>
       </div>
