@@ -28,6 +28,7 @@ def mynavbar():
         View('Home', 'index'),
         View('About', 'about'),
         View('Snippets', 'snippets'),
+        View('Contribute', 'contribute'),
     )
 nav.init_app(app)
 
@@ -38,6 +39,8 @@ def index():
 
 @app.route('/about')
 def about():
+    #with open('about.md', 'r') as f:
+    #    about_block = markdown(f.read()) 
     return render_template('about.html')
 
 @app.route('/snippets')
@@ -50,17 +53,14 @@ def snippets():
 def snippet_example(name):
     return name 
 
-def test_content():
-    hrs = DataSet(name='Health and Retirement Study'
-                , description=('Longitudinal survey of adults aged 50+ and '
-                           'their spouses from 1996 to 2014.')) 
-    fbi = DataSet(name='FBI Crime Data thing'
-                , description=('Data obtained from FBI API'))
-    
-    others = [DataSet(name=('Thing {}'.format(i))
-                , description=('OK **hello**') 
-                , snippet=('x = 5')) for i in range(1, 31)]
-    return [hrs, fbi] + others
+@app.route('/contribute', methods=['GET', 'POST'])
+def contribute():
+    #name = request.form['user_name'] 
+    #department = request.form['user_department']
+    #affiliation = request.form['user_affiliation']
+    #rv = f'Data Submission from {name}, {affiliation} at {department}'
+    #print(rv) 
+    return render_template('contribute.html')
 
 class DataSet(db.Model):
     __tablename__ = 'datasets'
