@@ -1,13 +1,28 @@
-from markdown import markdown
+import os
+from flask import Markup
 from flask_nav import Nav
+from markdown import markdown
+from flask_bootstrap import Bootstrap
+from flask_sqlalchemy import SQLAlchemy
 from flask_nav.elements import Navbar, View
 from flask import Flask, render_template, request
 from flask_debugtoolbar import DebugToolbarExtension
-from flask_bootstrap import Bootstrap
-from flask import Markup
-# from db_models import DataSet, Researcher
-import os
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, render_template, render_template_string
+
+from flask_frozen import Freezer
+from flask_flatpages import (
+    FlatPages, pygmented_markdown, pygments_style_defs)
+
+def prerender_jinja(text):
+    """ Pre-renders Jinja templates before markdown. """
+    prerendered_body = render_template_string(text)
+    return pygmented_markdown(prerendered_body)
+
+DEBUG = True
+FLATPAGES_AUTO_RELOAD = DEBUG
+FLATPAGES_EXTENSION = '.md'
+FLATPAGES_HTML_RENDERER = prerender_jinja
+FLATPAGES_MARKDOWN_EXTENSIONS = ['codehilite']
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -20,6 +35,8 @@ db = SQLAlchemy(app)
 app.debug = True
 bootstrap = Bootstrap(app)
 nav = Nav()
+pages = FlatPages(app)
+freezer = Freezer(app)
 
 @nav.navigation()
 def mynavbar():
@@ -57,7 +74,7 @@ def snippet_example(name):
 def contribute():
     #name = request.form['user_name'] 
     #department = request.form['user_department']
-    #affiliation = request.form['user_affiliation']
+    #affliation = request.form['user_affiliation']
     #rv = f'Data Submission from {name}, {affiliation} at {department}'
     #print(rv) 
     return render_template('contribute.html')
