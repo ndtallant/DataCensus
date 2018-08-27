@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Data Census | This project aims to facilitate the Harris’ mission by creating a resource for sharing policy-relevant datasets that have been accumulated, cleaned up, and purchased by researchers around the University Community.</title>
+<meta name="generator" content="Jekyll v3.8.3" />
+<meta property="og:title" content="Data Census" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This project aims to facilitate the Harris’ mission by creating a resource for sharing policy-relevant datasets that have been accumulated, cleaned up, and purchased by researchers around the University Community." />
+<meta property="og:description" content="This project aims to facilitate the Harris’ mission by creating a resource for sharing policy-relevant datasets that have been accumulated, cleaned up, and purchased by researchers around the University Community." />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:site_name" content="Data Census" />
+<script type="application/ld+json">
+{"name":"Data Census","description":"This project aims to facilitate the Harris’ mission by creating a resource for sharing policy-relevant datasets that have been accumulated, cleaned up, and purchased by researchers around the University Community.","@type":"WebSite","url":"http://localhost:4000/","headline":"Data Census","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Data Census" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Data Census</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="home"><h2 id="global-health-observatory-data-repository">Global Health Observatory data repository</h2>
+<p>The Global Health Observatory data repository is the World Health Organization’s gateway to health-related statistics for its 194 Member States. It provides access to over 1000 indicators on priority health topics including mortality and burden of diseases, the Millennium Development Goals (child nutrition, child health, maternal and reproductive health, immunization, HIV/AIDS, tuberculosis, malaria, neglected diseases, water and sanitation), non communicable diseases and risk factors, epidemic-prone diseases, health systems, environmental health, violence and injuries, equity among others.</p>
+
+<p>Many of these datasets represent the best estimates of WHO using methodologies for specific indicators that aim for comparability across countries and time. Please check the Indicator and Measurement Registry for indicator specific information. Additional metadata and definitions can be found <a href="http://apps.who.int/gho/data/node.metadata">here</a>. The World Health Organization also provides <a href="http://apps.who.int/gho/data/node.resources.examples?lang=en">examples of API usage</a></p>
+
+<h3 id="example-in-python">Example in Python</h3>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="n">base</span> <span class="o">=</span> <span class="p">(</span><span class="s">'http://apps.who.int/gho/athena/data/GHO/{}'</span>
+        <span class="s">'.json?profile=simple&amp;filter=COUNTRY:*'</span><span class="p">)</span>
+
+<span class="n">ad_restrictions</span> <span class="o">=</span> <span class="s">'SA_0000001515'</span>
+
+<span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">code</span><span class="p">))</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">get_data_helper</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_data_helper</span><span class="p">(</span><span class="n">who_dictionary</span><span class="p">):</span>
+    <span class="s">'''Pads the dictionary so entries are same length'''</span>
+    <span class="n">rv</span> <span class="o">=</span> <span class="p">[]</span> 
+    <span class="n">fact_table</span> <span class="o">=</span> <span class="n">who_dictionary</span><span class="p">[</span><span class="s">'fact'</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">observation</span> <span class="ow">in</span> <span class="n">fact_table</span><span class="p">:</span>
+        <span class="n">new_row</span> <span class="o">=</span> <span class="n">observation</span><span class="p">[</span><span class="s">'dim'</span><span class="p">]</span>
+        <span class="n">new_row</span><span class="p">[</span><span class="s">'VALUE'</span><span class="p">]</span> <span class="o">=</span> <span class="n">observation</span><span class="p">[</span><span class="s">'Value'</span><span class="p">]</span>
+        <span class="n">rv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_row</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rv</span>
+
+<span class="k">def</span> <span class="nf">clean_who_data</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">df</span><span class="p">[</span><span class="s">'ad_type'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">ADVERTISINGTYPE</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> 
+                                     <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">' Ads'</span><span class="p">,</span> <span class="s">''</span><span class="p">))</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s">'GHO'</span><span class="p">,</span> <span class="s">'PUBLISHSTATE'</span>
+           <span class="p">,</span> <span class="s">'ADVERTISINGTYPE'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">''</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">ad_restrictions</span><span class="p">)</span>
+    <span class="n">clean_who_data</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Preview:'</span><span class="p">)</span> 
+    <span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">'WHO_ad_data.csv'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="example-in-r">Example in R</h3>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">readr</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># Flat file downloaded from:</span><span class="w">
+</span><span class="c1"># http://apps.who.int/gho/data/view.main.REGION2480A?lang=en</span><span class="w">
+
+</span><span class="n">data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'obesity.csv'</span><span class="p">)</span><span class="w">
+
+</span><span class="n">by.region</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">group_by</span><span class="p">(</span><span class="n">REGION</span><span class="p">,</span><span class="w"> </span><span class="n">YEAR</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">summarize</span><span class="p">(</span><span class="n">mean.Numeric</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">Numeric</span><span class="p">)</span><span class="o">/</span><span class="m">100</span><span class="p">)</span><span class="w">
+
+</span><span class="n">ggplot</span><span class="p">(</span><span class="n">by.region</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YEAR</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean.Numeric</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">REGION</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_point</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_line</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">ggtitle</span><span class="p">(</span><span class="s1">'Obesity Rates Over Time'</span><span class="p">,</span><span class="w"> </span><span class="n">subtitle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Grouped By Region'</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+</span><span class="n">ylab</span><span class="p">(</span><span class="s1">'Average Obesity Rate'</span><span class="p">)</span></code></pre></figure>
+
+<p><br />
+<br />
+<br /></p>
+
+<h2 id="fbi-crime-data-api">FBI Crime Data API</h2>
+
+<p>The FBI Crime Data API is a read-only web service that returns JSON or CSV data. It is broadly organized around the FBI’s Uniform Crime Reporting systems data, and requires a <a href="https://api.data.gov/docs">data.gov API network</a> key. Agencies submit data using one of two reporting formats – the Summary Reporting System (SRS), or the National Incident Based Reporting System (NIBRS).</p>
+
+<p>The FBI also provides <a href="https://crime-data-explorer.fr.cloud.gov/api">full documentation</a> and <a href="https://github.com/fbi-cde">source code</a>.</p>
+
+<h3 id="example-in-python-1">Example in Python</h3>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="n">your_key_here</span> 
+<span class="n">base</span> <span class="o">=</span> <span class="s">'https://api.usa.gov/crime/fbi/sapi/'</span>
+<span class="n">offenses</span> <span class="o">=</span> <span class="p">[</span><span class="s">'burglary'</span><span class="p">,</span> <span class="s">'homicide'</span><span class="p">,</span> <span class="s">'rape'</span><span class="p">]</span>
+
+<span class="n">ori</span> <span class="o">=</span> <span class="s">'api/agencies?api_key='</span>
+<span class="n">crime</span> <span class="o">=</span> <span class="s">'api/summarized/agencies/{}/{}?api_key='</span>
+
+<span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">query</span><span class="p">):</span>
+    <span class="s">'''Returns a dictionary of data from an API request.'''</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">base</span> <span class="o">+</span> <span class="n">query</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">get_county_agencies</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">county</span><span class="p">):</span>
+    <span class="s">'''&lt;br&gt;
+    Given a state and county, reutrns a list of
+    dictionaries - keys being Originating Agency Identifiers
+    (ORI) - for any county level agencies.
+    '''</span>
+    <span class="n">ori_list</span> <span class="o">=</span> <span class="p">[]</span> 
+    <span class="k">for</span> <span class="n">agency</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">state</span><span class="p">]:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">state</span><span class="p">][</span><span class="n">agency</span><span class="p">][</span><span class="s">'county_name'</span><span class="p">]</span> <span class="o">==</span> <span class="n">county</span><span class="p">:</span>
+            <span class="n">ori_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">state</span><span class="p">][</span><span class="n">agency</span><span class="p">])</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">continue</span>
+    <span class="k">return</span> <span class="n">ori_list</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">ori_query</span><span class="p">,</span> <span class="n">api_key</span><span class="p">)</span>
+<span class="n">wood_county_agencies</span> <span class="o">=</span> <span class="n">get_county_agencies</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s">'TX'</span><span class="p">,</span> <span class="s">'WOOD'</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_agency_crimes</span><span class="p">(</span><span class="n">ori</span><span class="p">,</span> <span class="n">offense</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">crime</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ori</span><span class="p">,</span> <span class="n">offense</span><span class="p">))</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+<span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="s">'results'</span><span class="p">]</span></code></pre></figure>
+
+<h3 id="example-in-r-1">Example in R</h3>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"R Code!"</span><span class="p">)</span></code></pre></figure>
+
+<p><br />
+<br />
+<br /></p>
+
+<h2 id="american-time-use-survey">American Time Use Survey</h2>
+
+<p>Researchers can produce their own time-use estimates using the ATUS microdata files. The ATUS data files include information for over 190,000 respondents total from 2003 to 2017. Because of the size of these data files, it is easiest to work with them using statistical software such as Stata, SAS, or SPSS.</p>
+
+<p>The survey is sponsored by the Bureau of Labor Statistics and is conducted by the U.S. Census Bureau.</p>
+
+<p>The major purpose of ATUS is to develop nationally representative estimates of how people spend their time. The survey also provides information on the amount of time people spend in many other activities, such as religious activities, socializing, exercising, and relaxing. Demographic information such as sex, race, age, educational attainment, etc. is also available for each respondent. Can we estimate the value of unpaid work?</p>
+
+<p><a href="https://www.bls.gov/tus/data.htm">Microdata</a> 
+ | <a href="https://www.bls.gov/tus/atususersguide.pdf">User Guide</a></p>
+<h2 class="post-list-heading">Posts</h2>
+    <ul class="post-list"><li><span class="post-meta">Aug 26, 2018</span>
+        <h3>
+          <a class="post-link" href="/jekyll/update/2018/08/26/welcome-to-jekyll.html">
+            Welcome to Jekyll!
+          </a>
+        </h3></li></ul>
+
+    <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p></div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Data Census</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Data Census</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ndtallant"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ndtallant</span></a></li><li><a href="https://www.twitter.com/HarrisPolicy"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">HarrisPolicy</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This project aims to facilitate the Harris&#39; mission by creating a resource for sharing policy-relevant datasets that have been accumulated, cleaned up, and purchased by researchers around the University Community.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
