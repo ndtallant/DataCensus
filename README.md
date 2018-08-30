@@ -15,7 +15,7 @@ This repository has code for:
 TBA
 
 ## Project Organization
-'''
+```
 .
 ├── _data_sources
 │   └── _site
@@ -26,4 +26,4 @@ TBA
     ├── assets
     ├── jekyll
     └── researchers (Directory for webscraping researcher info)
-'''
+```
