@@ -33,8 +33,280 @@
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home"><h2 id="global-health-observatory-data-repository">Global Health Observatory Data Repository</h2>
-<p>The Global Health Observatory data repository is the World Health Organization’s gateway to health-related statistics for its 194 Member States. It provides access to over 1000 indicators on priority health topics including mortality and burden of diseases, the Millennium Development Goals (child nutrition, child health, maternal and reproductive health, immunization, HIV/AIDS, tuberculosis, malaria, neglected diseases, water and sanitation), non communicable diseases and risk factors, epidemic-prone diseases, health systems, environmental health, violence and injuries, equity among others.</p>
+        
+  <h2>American Time Use Survey</h2>
+  <p>Researchers can produce their own time-use estimates using the ATUS microdata files. The ATUS data files include information for over 190,000 respondents total from 2003 to 2017. Because of the size of these data files, it is easiest to work with them using statistical software such as Stata, SAS, or SPSS.</p>
+
+<p>The survey is sponsored by the Bureau of Labor Statistics and is conducted by the U.S. Census Bureau.</p>
+
+<p>The major purpose of ATUS is to develop nationally representative estimates of how people spend their time. The survey also provides information on the amount of time people spend in many other activities, such as religious activities, socializing, exercising, and relaxing. Demographic information such as sex, race, age, educational attainment, etc. is also available for each respondent. Can we estimate the value of unpaid work?</p>
+
+<p><a href="https://www.bls.gov/tus/data.htm">Microdata</a> 
+ | <a href="https://www.bls.gov/tus/atususersguide.pdf">User Guide</a></p>
+
+
+  <br>
+  <br>
+
+  <h2>City of Boston</h2>
+  <p>Analyze Boston is the City of Boston’s open data hub to find facts, figures, and maps related to our lives within the city. We are working to make this the default technology platform to support the publication of the City’s public information, 
+in the form of <a href="https://data.boston.gov/pages/glossary">data</a>, and to make this information easy to find, access, and use by a broad audience. This platform is managed by the <a href="https://www.boston.gov/departments/analytics-team">Citywide Analytics Team</a>.</p>
+
+<p>Each dataset from Analyze Boston typically has metadata and relevant information. For example, <a href="https://data.boston.gov/dataset/park-boston-monthly-transactions-by-zone-2015">this dataset from ParkBoston</a>.</p>
+
+<h3 id="example-in-python">Example in Python</h3>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="example-in-r">Example in R</h3>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+
+
+  <br>
+  <br>
+
+  <h2>College ScoreCard API</h2>
+  <p>This API makes all data available from the Department of Education’s College Scorecard, as well as supporting data on student completion, debt and repayment, earnings, and more. The files include data from 1996 through 2016 for all undergraduate degree-granting institutions of higher education. Data includes institution level characteristic such as average cost of attendance and retention rates for first-time students, as well as student characteristics such as student body by ethnicity and age. 
+The full documentation and data dictionary can be found at <a href="https://collegescorecard.ed.gov/data/documentation/">here</a>.</p>
+
+<h3 id="example-in-python">Example in Python</h3>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="example-in-r">Example in R</h3>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+
+
+  <br>
+  <br>
+
+  <h2>Energy Information Administration API</h2>
+  <p>The U.S. Energy Information Administration has its data free and open through an API, bulk file download, Excel / Google Sheets add-ons, and pluggable online widgets. EIA’s API contains the datasets centered around hourly electricity operations, state energy systems, petroleum products, crude imports, natural gas, coal, international energy, and short-term and annual energy outlook. While the API is offered as a free public service, registration is required. The EIA also provides:</p>
+<ul>
+  <li><a href="https://www.eia.gov/opendata/register.cfm#terms_of_service">API Terms of Service Agreement</a></li>
+  <li><a href="https://www.eia.gov/about/copyrights_reuse.cfm">Copyrights and Reuse</a></li>
+  <li><a href="https://www.eia.gov/opendata/commands.php">Full Documentation</a></li>
+</ul>
+
+<h3 id="example-in-python">Example in Python</h3>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="example-in-r">Example in R</h3>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+
+
+  <br>
+  <br>
+
+  <h2>FBI Crime Data API</h2>
+  <p>The FBI Crime Data API is a read-only web service that returns JSON or CSV data. It is broadly organized around the FBI’s Uniform Crime Reporting systems data, and requires a <a href="https://api.data.gov/docs">data.gov API network</a> key. Agencies submit data using one of two reporting formats – the Summary Reporting System (SRS), or the National Incident Based Reporting System (NIBRS).</p>
+
+<p>The FBI also provides <a href="https://crime-data-explorer.fr.cloud.gov/api">full documentation</a> and <a href="https://github.com/fbi-cde">source code</a>.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="n">your_key_here</span> 
+<span class="n">base</span> <span class="o">=</span> <span class="s">'https://api.usa.gov/crime/fbi/sapi/'</span>
+<span class="n">offenses</span> <span class="o">=</span> <span class="p">[</span><span class="s">'burglary'</span><span class="p">,</span> <span class="s">'homicide'</span><span class="p">,</span> <span class="s">'rape'</span><span class="p">]</span>
+
+<span class="n">ori</span> <span class="o">=</span> <span class="s">'api/agencies?api_key='</span>
+<span class="n">crime</span> <span class="o">=</span> <span class="s">'api/summarized/agencies/{}/{}?api_key='</span>
+
+<span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">query</span><span class="p">):</span>
+    <span class="s">'''Returns a dictionary of data from an API request.'''</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">base</span> <span class="o">+</span> <span class="n">query</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">get_county_agencies</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">county</span><span class="p">):</span>
+    <span class="s">'''
+    Given a state and county, reutrns a list of
+    dictionaries - keys being Originating Agency Identifiers
+    (ORI) - for any county level agencies.
+    '''</span>
+    <span class="n">ori_list</span> <span class="o">=</span> <span class="p">[]</span> 
+    <span class="k">for</span> <span class="n">agency</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">state</span><span class="p">]:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">state</span><span class="p">][</span><span class="n">agency</span><span class="p">][</span><span class="s">'county_name'</span><span class="p">]</span> <span class="o">==</span> <span class="n">county</span><span class="p">:</span>
+            <span class="n">ori_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">state</span><span class="p">][</span><span class="n">agency</span><span class="p">])</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">continue</span>
+    <span class="k">return</span> <span class="n">ori_list</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">ori_query</span><span class="p">,</span> <span class="n">api_key</span><span class="p">)</span>
+<span class="n">wood_county_agencies</span> <span class="o">=</span> <span class="n">get_county_agencies</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s">'TX'</span><span class="p">,</span> <span class="s">'WOOD'</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_agency_crimes</span><span class="p">(</span><span class="n">ori</span><span class="p">,</span> <span class="n">offense</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">crime</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ori</span><span class="p">,</span> <span class="n">offense</span><span class="p">))</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+    <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="s">'results'</span><span class="p">]</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"R Code!"</span><span class="p">)</span></code></pre></figure>
+
+
+  <br>
+  <br>
+
+  <h2>Feed Grains' Yearbook Tables (USDA)</h2>
+  <p>This data product provided by the USDA contains statistics on four main feed grains - corn, grain sorghum, barley, and oats - as well as foreign coarse grains such as rye, millet, hay, and related items. This includes data published in the monthly Feed Outlook and previously annual Feed Yearbook. Data are monthly, quarterly, and/or annual depending upon the data series.</p>
+
+<p>Latest data may be preliminary or projected. Missing values indicate unreported values, discontinued series, or not yet released data. It is available in a bulk download from <a href="https://www.ers.usda.gov/data-products/feed-grains-database/feed-grains-yearbook-tables.aspx">here</a>.</p>
+
+<h3 id="example-in-python">Example in Python</h3>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="example-in-r">Example in R</h3>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+
+
+  <br>
+  <br>
+
+  <h2>Food Environment Atlas (USDA)</h2>
+  <p>The current version of the Food Environment Atlas has over 275 variables, including new indicators on access and proximity to a grocery store for sub populations; an indicator on the SNAP Combined Application Project for recipients of Supplemental Security Income (at the State level); and indicators on farmers’ markets that report accepting credit cards or report selling baked and prepared food products. All of the data included in the Atlas are aggregated into an Excel spreadsheet for easy download. These data are from a variety of sources and cover varying years and geographic levels. The documentation for each version of the data provides complete information on definitions and data sources, and can be found <a href="https://www.ers.usda.gov/webdocs/DataFiles/80526/archived_documentation_August2015.pdf?v=0">here</a></p>
+
+<h3 id="example-in-python">Example in Python</h3>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="example-in-r">Example in R</h3>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+
+
+  <br>
+  <br>
+
+  <h2>Integrated Public Use Microdata Series</h2>
+  <p>IPUMS is not a collection of compiled statistics; it is composed of microdata. Each record is a person, with all characteristics numerically coded. In most samples persons are organized into households, making it possible to study the characteristics of people in the context of their families or other co-residents. Because the data are individuals and not tables, researchers must use a statistical package to analyze the millions of records in the database. A data extraction system enables users to select only the samples and variables they require. Data is received in a gzip file.
+Data that is used for publicatoin must be cited. The IPUMS download portal yields a data file as well as command files for SAS, SPSS, Stata, and R. Researchers using R are recommended to use the <code class="highlighter-rouge">Ipumsr</code> package.</p>
+
+<p><strong>Helpful Links:</strong></p>
+<ul>
+  <li><a href="https://usa.ipums.org/usa/resources/instruct.pdf">Downloading data</a></li>
+  <li><a href="https://usa.ipums.org/usa/data_example.html">Data sample</a></li>
+  <li><a href="https://usa.ipums.org/usa-action/faq">FAQ</a></li>
+  <li><a href="https://uma.pop.umn.edu/usa/user/new?return_url=https%3A%2F%2Fusa.ipums.org%2Fusa-action%2Fextract_requests%2Fdownload">Must Create an account</a></li>
+</ul>
+
+<h3 id="example-in-python">Example in Python</h3>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="example-in-r">Example in R</h3>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+
+
+  <br>
+  <br>
+
+  <h2>Bureau of Labor Statistics'  API</h2>
+  <p>The BLS Public Data API gives the public access to economic data from all BLS programs, such as the Consumer Price Index. The API is currently available in two versions, the most recent requiring registration and allows users to access more data more frequently. Both versions return data from published historical time series data in json or xlsx format.
+The data sources available to this API are extensive - covering employment, inflation, spending, pay and more. Knowledge of data series’ codes and formats is necessary for successful use of the API, and ID formats can be found <a href="https://www.bls.gov/help/hlpforma.htm">here</a>. Additionally, the full documentation can be found <a href="https://www.bls.gov/developers/home.htm">here</a></p>
+
+<h3 id="example-in-python">Example in Python</h3>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="example-in-r">Example in R</h3>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+
+
+  <br>
+  <br>
+
+  <h2>USDA National Agricultural Statistics Service API</h2>
+  <p>This API provides access to data from the Census of Agriculture as well as national, state, and county level surveys. Data is queried through requesting commodities encapsulated in the sectors of Crops, Animals &amp; Products, Economics, Demographics, and Environmental. The commodity statistics are aggregated for standard census geographies, agricultural statistics districts, and watershed boundaries over annual, seasonal, monthly, weekly, and daily time periods. For example, requesting published statistics for corn in Virginia for years greater than or equal to 2010 would be:</p>
+
+<p><code class="highlighter-rouge">http://quickstats.nass.usda.gov/api/api_GET/?key=apikey&amp;commodity_desc=CORN&amp;year__GE=2010&amp;state_alpha=VA</code></p>
+
+<p>Full Documentation, a Data Dictionary, and API Registration can be found <a href="https://quickstats.nass.usda.gov/api">here</a>.</p>
+
+<h3 id="example-in-python">Example in Python</h3>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">'http://quickstats.nass.usda.gov/api/api_GET/?key=apikey&amp;</span><span class="se">\
+</span><span class="s">       commodity_desc=CORN&amp;year__GE=2010&amp;state_alpha=VA'</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="example-in-r">Example in R</h3>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+
+
+  <br>
+  <br>
+
+  <h2>National Longitudinal Surveys (NLS)</h2>
+  <p>Information on the labor market activities and other significant life events of several groups of men and women at multiple points in time. For more than 4 decades, NLS data have served as an important tool for economists, sociologists, and other researchers.The NLS program includes the following cohorts :</p>
+
+<ul>
+  <li><a href="https://www.nlsinfo.org/content/cohorts/nlsy97">NLS Youth 1997 (NLSY97)</a>: Respondents were ages 12-17 when first interviewed in 1997.</li>
+  <li><a href="https://www.nlsinfo.org/content/cohorts/nlsy79">NLS Youth 1979 (NLSY79)</a>: Respondents were ages 14-22 when first interviewed in 1979.</li>
+  <li><a href="https://www.nlsinfo.org/content/cohorts/nlsy79-children">NLSY79 Children and Young Adults</a>: Assessments of biological children of women in the NLSY79, starting in 1986.</li>
+  <li><a href="https://www.nlsinfo.org/content/cohorts/mature-and-young-women">NLS Young and Mature Women (NLSW)</a>: Young women born in the years 1943-53 and mature women born in the years 1922-37.</li>
+  <li><a href="https://www.nlsinfo.org/content/cohorts/older-and-young-men">NLS Young and Older Men (NLSM)</a>: Young men born in the years 1941-52 and older men born in the years 1906-21.</li>
+</ul>
+
+<p>The download functionality for these data sets provides access to files for SPSS, SAS, Stata, R, or simply a csv. A tagset, codebook, description file, and log file are also included with a download.</p>
+
+<p>The R, SAS, and SPSS files contain code needed to load the data set, as well as short explanations for missing values and level names.</p>
+
+<h3 id="example-in-python">Example in Python</h3>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="example-in-r">Example in R</h3>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+
+
+  <br>
+  <br>
+
+  <h2>Nationwide Readmissions Database (NRD)</h2>
+  <p>The Nationwide Readmissions Database is designed to support various types of analyses of national readmission rates. The NRD includes discharges for patients with and without repeat hospital visits in a year and those who have died in the hospital. The criteria to determine the relationship between hospital admissions is left to the analyst using the NRD. 
+This database was compiled by the Agency for Healthcare Research and Quality (AHRQ), who provides a <a href="https://www.hcup-us.ahrq.gov/db/nation/nrd/nrddde.jsp">Data Dictionary</a> and <a href="https://www.hcup-us.ahrq.gov/db/nation/nrd/nrddbdocumentation.jsp">Full Documentation</a>.</p>
+
+<h3 id="example-in-python">Example in Python</h3>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="example-in-r">Example in R</h3>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+
+
+  <br>
+  <br>
+
+  <h2>TSA API</h2>
+  <p>The MyTSA Web Service API supports several features, some of which include: Security Checkpoint Wait Times, TSA Pre-Check locations, and Sunrise/Sunset times for all locations.
+Data can be queried by state and/or airport. The TSA provides XML files of data in addition to the API with <a href="https://www.dhs.gov/mytsa-api-documentation">documentation</a>.</p>
+
+<h3 id="example-in-python">Example in Python</h3>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="example-in-r">Example in R</h3>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+
+
+  <br>
+  <br>
+
+  <h2>Global Health Observatory Data Repository</h2>
+  <p>The Global Health Observatory data repository is the World Health Organization’s gateway to health-related statistics for its 194 Member States. It provides access to over 1000 indicators on priority health topics including mortality and burden of diseases, the Millennium Development Goals (child nutrition, child health, maternal and reproductive health, immunization, HIV/AIDS, tuberculosis, malaria, neglected diseases, water and sanitation), non communicable diseases and risk factors, epidemic-prone diseases, health systems, environmental health, violence and injuries, equity among others.</p>
 
 <p>Many of these datasets represent the best estimates of WHO using methodologies for specific indicators that aim for comparability across countries and time. Please check the Indicator and Measurement Registry for indicator specific information. Additional metadata and definitions can be found <a href="http://apps.who.int/gho/data/node.metadata">here</a>. The World Health Organization also provides <a href="http://apps.who.int/gho/data/node.resources.examples?lang=en">examples of API usage</a>.</p>
 
@@ -99,298 +371,10 @@
   </span><span class="n">ggtitle</span><span class="p">(</span><span class="s1">'Obesity Rates Over Time'</span><span class="p">,</span><span class="w"> </span><span class="n">subtitle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Grouped By Region'</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
 </span><span class="n">ylab</span><span class="p">(</span><span class="s1">'Average Obesity Rate'</span><span class="p">)</span></code></pre></figure>
 
-<p><br />
-<br />
-<br /></p>
 
-<h2 id="fbi-crime-data-api">FBI Crime Data API</h2>
+  <br>
+  <br>
 
-<p>The FBI Crime Data API is a read-only web service that returns JSON or CSV data. It is broadly organized around the FBI’s Uniform Crime Reporting systems data, and requires a <a href="https://api.data.gov/docs">data.gov API network</a> key. Agencies submit data using one of two reporting formats – the Summary Reporting System (SRS), or the National Incident Based Reporting System (NIBRS).</p>
-
-<p>The FBI also provides <a href="https://crime-data-explorer.fr.cloud.gov/api">full documentation</a> and <a href="https://github.com/fbi-cde">source code</a>.</p>
-
-<h3 id="example-in-python-1">Example in Python</h3>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
-<span class="n">api_key</span> <span class="o">=</span> <span class="n">your_key_here</span> 
-<span class="n">base</span> <span class="o">=</span> <span class="s">'https://api.usa.gov/crime/fbi/sapi/'</span>
-<span class="n">offenses</span> <span class="o">=</span> <span class="p">[</span><span class="s">'burglary'</span><span class="p">,</span> <span class="s">'homicide'</span><span class="p">,</span> <span class="s">'rape'</span><span class="p">]</span>
-
-<span class="n">ori</span> <span class="o">=</span> <span class="s">'api/agencies?api_key='</span>
-<span class="n">crime</span> <span class="o">=</span> <span class="s">'api/summarized/agencies/{}/{}?api_key='</span>
-
-<span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">query</span><span class="p">):</span>
-    <span class="s">'''Returns a dictionary of data from an API request.'''</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">base</span> <span class="o">+</span> <span class="n">query</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-
-<span class="k">def</span> <span class="nf">get_county_agencies</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">county</span><span class="p">):</span>
-    <span class="s">'''&lt;br&gt;
-    Given a state and county, reutrns a list of
-    dictionaries - keys being Originating Agency Identifiers
-    (ORI) - for any county level agencies.
-    '''</span>
-    <span class="n">ori_list</span> <span class="o">=</span> <span class="p">[]</span> 
-    <span class="k">for</span> <span class="n">agency</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">state</span><span class="p">]:</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">state</span><span class="p">][</span><span class="n">agency</span><span class="p">][</span><span class="s">'county_name'</span><span class="p">]</span> <span class="o">==</span> <span class="n">county</span><span class="p">:</span>
-            <span class="n">ori_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">state</span><span class="p">][</span><span class="n">agency</span><span class="p">])</span>
-        <span class="k">except</span><span class="p">:</span>
-            <span class="k">continue</span>
-    <span class="k">return</span> <span class="n">ori_list</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">ori_query</span><span class="p">,</span> <span class="n">api_key</span><span class="p">)</span>
-<span class="n">wood_county_agencies</span> <span class="o">=</span> <span class="n">get_county_agencies</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s">'TX'</span><span class="p">,</span> <span class="s">'WOOD'</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">get_agency_crimes</span><span class="p">(</span><span class="n">ori</span><span class="p">,</span> <span class="n">offense</span><span class="p">):</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">crime</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ori</span><span class="p">,</span> <span class="n">offense</span><span class="p">))</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
-<span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="s">'results'</span><span class="p">]</span></code></pre></figure>
-
-<h3 id="example-in-r-1">Example in R</h3>
-
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"R Code!"</span><span class="p">)</span></code></pre></figure>
-
-<p><br />
-<br />
-<br /></p>
-
-<h2 id="nationwide-readmissions-database-nrd">Nationwide Readmissions Database (NRD)</h2>
-<p>The Nationwide Readmissions Database is designed to support various types of analyses of national readmission rates. The NRD includes discharges for patients with and without repeat hospital visits in a year and those who have died in the hospital. The criteria to determine the relationship between hospital admissions is left to the analyst using the NRD. 
-This database was compiled by the Agency for Healthcare Research and Quality (AHRQ), who provides a <a href="https://www.hcup-us.ahrq.gov/db/nation/nrd/nrddde.jsp">Data Dictionary</a> and <a href="https://www.hcup-us.ahrq.gov/db/nation/nrd/nrddbdocumentation.jsp">Full Documentation</a>.</p>
-
-<h3 id="example-in-python-2">Example in Python</h3>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
-
-<h3 id="example-in-r-2">Example in R</h3>
-
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
-
-<p><br />
-<br />
-<br /></p>
-
-<h2 id="national-longitudinal-surveys-nls">National Longitudinal Surveys (NLS)</h2>
-<p>Information on the labor market activities and other significant life events of several groups of men and women at multiple points in time. For more than 4 decades, NLS data have served as an important tool for economists, sociologists, and other researchers.The NLS program includes the following cohorts :</p>
-
-<ul>
-  <li><a href="https://www.nlsinfo.org/content/cohorts/nlsy97">NLS Youth 1997 (NLSY97)</a>: Respondents were ages 12-17 when first interviewed in 1997.</li>
-  <li><a href="https://www.nlsinfo.org/content/cohorts/nlsy79">NLS Youth 1979 (NLSY79)</a>: Respondents were ages 14-22 when first interviewed in 1979.</li>
-  <li><a href="https://www.nlsinfo.org/content/cohorts/nlsy79-children">NLSY79 Children and Young Adults</a>: Assessments of biological children of women in the NLSY79, starting in 1986.</li>
-  <li><a href="https://www.nlsinfo.org/content/cohorts/mature-and-young-women">NLS Young and Mature Women (NLSW)</a>: Young women born in the years 1943-53 and mature women born in the years 1922-37.</li>
-  <li><a href="https://www.nlsinfo.org/content/cohorts/older-and-young-men">NLS Young and Older Men (NLSM)</a>: Young men born in the years 1941-52 and older men born in the years 1906-21.</li>
-</ul>
-
-<p>The download functionality for these data sets provides access to files for SPSS, SAS, Stata, R, or simply a csv. A tagset, codebook, description file, and log file are also included with a download.</p>
-
-<p>The R, SAS, and SPSS files contain code needed to load the data set, as well as short explanations for missing values and level names.</p>
-
-<h3 id="example-in-python-3">Example in Python</h3>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
-
-<h3 id="example-in-r-3">Example in R</h3>
-
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
-
-<p><br />
-<br />
-<br /></p>
-
-<h2 id="usda-national-agricultural-statistics-service-api">USDA National Agricultural Statistics Service API</h2>
-
-<p>This API provides access to data from the Census of Agriculture as well as national, state, and county level surveys. Data is queried through requesting commodities encapsulated in the sectors of Crops, Animals &amp; Products, Economics, Demographics, and Environmental. The commodity statistics are aggregated for standard census geographies, agricultural statistics districts, and watershed boundaries over annual, seasonal, monthly, weekly, and daily time periods. For example, requesting published statistics for corn in Virginia for years greater than or equal to 2010 would be:</p>
-
-<p><code class="highlighter-rouge">http://quickstats.nass.usda.gov/api/api_GET/?key=apikey&amp;commodity_desc=CORN&amp;year__GE=2010&amp;state_alpha=VA</code></p>
-
-<p>Full Documentation, a Data Dictionary, and API Registration can be found <a href="https://quickstats.nass.usda.gov/api">here</a>.</p>
-
-<h3 id="example-in-python-4">Example in Python</h3>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">'http://quickstats.nass.usda.gov/api/api_GET/?key=apikey&amp;</span><span class="se">\
-</span><span class="s">       commodity_desc=CORN&amp;year__GE=2010&amp;state_alpha=VA'</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
-
-<h3 id="example-in-r-4">Example in R</h3>
-
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
-
-<p><br />
-<br />
-<br /></p>
-
-<h2 id="integrated-public-use-microdata-series">Integrated Public Use Microdata Series</h2>
-
-<p>IPUMS is not a collection of compiled statistics; it is composed of microdata. Each record is a person, with all characteristics numerically coded. In most samples persons are organized into households, making it possible to study the characteristics of people in the context of their families or other co-residents. Because the data are individuals and not tables, researchers must use a statistical package to analyze the millions of records in the database. A data extraction system enables users to select only the samples and variables they require. Data is received in a gzip file.
-Data that is used for publicatoin must be cited. The IPUMS download portal yields a data file as well as command files for SAS, SPSS, Stata, and R. Researchers using R are recommended to use the <code class="highlighter-rouge">Ipumsr</code> package.</p>
-
-<p><strong>Helpful Links:</strong></p>
-<ul>
-  <li><a href="https://usa.ipums.org/usa/resources/instruct.pdf">Downloading data</a></li>
-  <li><a href="https://usa.ipums.org/usa/data_example.html">Data sample</a></li>
-  <li><a href="https://usa.ipums.org/usa-action/faq">FAQ</a></li>
-  <li><a href="https://uma.pop.umn.edu/usa/user/new?return_url=https%3A%2F%2Fusa.ipums.org%2Fusa-action%2Fextract_requests%2Fdownload">Must Create an account</a></li>
-</ul>
-
-<h3 id="example-in-python-5">Example in Python</h3>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
-
-<h3 id="example-in-r-5">Example in R</h3>
-
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
-
-<p><br />
-<br />
-<br /></p>
-
-<h2 id="food-environment-atlas-usda">Food Environment Atlas (USDA)</h2>
-
-<p>The current version of the Food Environment Atlas has over 275 variables, including new indicators on access and proximity to a grocery store for sub populations; an indicator on the SNAP Combined Application Project for recipients of Supplemental Security Income (at the State level); and indicators on farmers’ markets that report accepting credit cards or report selling baked and prepared food products. All of the data included in the Atlas are aggregated into an Excel spreadsheet for easy download. These data are from a variety of sources and cover varying years and geographic levels. The documentation for each version of the data provides complete information on definitions and data sources, and can be found <a href="https://www.ers.usda.gov/webdocs/DataFiles/80526/archived_documentation_August2015.pdf?v=0">here</a></p>
-
-<h3 id="example-in-python-6">Example in Python</h3>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
-
-<h3 id="example-in-r-6">Example in R</h3>
-
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
-
-<p><br />
-<br />
-<br /></p>
-
-<h2 id="feed-grains-yearbook-tables-usda">Feed Grains: Yearbook Tables (USDA)</h2>
-
-<p>This data product provided by the USDA contains statistics on four main feed grains - corn, grain sorghum, barley, and oats - as well as foreign coarse grains such as rye, millet, hay, and related items. This includes data published in the monthly Feed Outlook and previously annual Feed Yearbook. Data are monthly, quarterly, and/or annual depending upon the data series.</p>
-
-<p>Latest data may be preliminary or projected. Missing values indicate unreported values, discontinued series, or not yet released data. It is available in a bulk download from <a href="https://www.ers.usda.gov/data-products/feed-grains-database/feed-grains-yearbook-tables.aspx">here</a>.</p>
-
-<h3 id="example-in-python-7">Example in Python</h3>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
-
-<h3 id="example-in-r-7">Example in R</h3>
-
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
-
-<p><br />
-<br />
-<br /></p>
-
-<h2 id="energy-information-administration-api">Energy Information Administration API</h2>
-
-<p>The U.S. Energy Information Administration has its data free and open through an API, bulk file download, Excel / Google Sheets add-ons, and pluggable online widgets. EIA’s API contains the datasets centered around hourly electricity operations, state energy systems, petroleum products, crude imports, natural gas, coal, international energy, and short-term and annual energy outlook. While the API is offered as a free public service, registration is required. The EIA also provides:</p>
-<ul>
-  <li><a href="https://www.eia.gov/opendata/register.cfm#terms_of_service">API Terms of Service Agreement</a></li>
-  <li><a href="https://www.eia.gov/about/copyrights_reuse.cfm">Copyrights and Reuse</a></li>
-  <li><a href="https://www.eia.gov/opendata/commands.php">Full Documentation</a></li>
-</ul>
-
-<h3 id="example-in-python-8">Example in Python</h3>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
-
-<h3 id="example-in-r-8">Example in R</h3>
-
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
-
-<p><br />
-<br />
-<br /></p>
-
-<h2 id="college-scorecard-api">College ScoreCard API</h2>
-
-<p>This API makes all data available from the Department of Education’s College Scorecard, as well as supporting data on student completion, debt and repayment, earnings, and more. The files include data from 1996 through 2016 for all undergraduate degree-granting institutions of higher education. Data includes institution level characteristic such as average cost of attendance and retention rates for first-time students, as well as student characteristics such as student body by ethnicity and age. 
-The full documentation and data dictionary can be found at <a href="https://collegescorecard.ed.gov/data/documentation/">here</a>.</p>
-
-<h3 id="example-in-python-9">Example in Python</h3>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
-
-<h3 id="example-in-r-9">Example in R</h3>
-
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
-
-<p><br />
-<br />
-<br /></p>
-
-<h2 id="city-of-boston">City of Boston</h2>
-<p>Analyze Boston is the City of Boston’s open data hub to find facts, figures, and maps related to our lives within the city. We are working to make this the default technology platform to support the publication of the City’s public information, 
-in the form of <a href="https://data.boston.gov/pages/glossary">data</a>, and to make this information easy to find, access, and use by a broad audience. This platform is managed by the <a href="https://www.boston.gov/departments/analytics-team">Citywide Analytics Team</a>.</p>
-
-<p>Each dataset from Analyze Boston typically has metadata and relevant information. For example, <a href="https://data.boston.gov/dataset/park-boston-monthly-transactions-by-zone-2015">this dataset from ParkBoston</a>.</p>
-
-<h3 id="example-in-python-10">Example in Python</h3>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
-
-<h3 id="example-in-r-10">Example in R</h3>
-
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
-
-<p><br />
-<br />
-<br /></p>
-
-<h2 id="bureau-of-labor-statistics--api">Bureau of Labor Statistics’  API</h2>
-
-<p>The BLS Public Data API gives the public access to economic data from all BLS programs, such as the Consumer Price Index. The API is currently available in two versions, the most recent requiring registration and allows users to access more data more frequently. Both versions return data from published historical time series data in json or xlsx format.
-The data sources available to this API are extensive - covering employment, inflation, spending, pay and more. Knowledge of data series’ codes and formats is necessary for successful use of the API, and ID formats can be found <a href="https://www.bls.gov/help/hlpforma.htm">here</a>. Additionally, the full documentation can be found <a href="https://www.bls.gov/developers/home.htm">here</a></p>
-
-<h3 id="example-in-python-11">Example in Python</h3>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
-
-<h3 id="example-in-r-11">Example in R</h3>
-
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
-
-<p><br />
-<br />
-<br /></p>
-
-<h2 id="tsa-api">TSA API</h2>
-<p>The MyTSA Web Service API supports several features, some of which include: Security Checkpoint Wait Times, TSA Pre-Check locations, and Sunrise/Sunset times for all locations. 
-Data can be queried by state and/or airport. The TSA provides XML files of data in addition to the API with <a href="https://www.dhs.gov/mytsa-api-documentation">documentation</a>.</p>
-
-<h3 id="example-in-python-12">Example in Python</h3>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
-
-<h3 id="example-in-r-12">Example in R</h3>
-
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
-
-<p><br />
-<br />
-<br /></p>
-
-<h2 id="american-time-use-survey">American Time Use Survey</h2>
-
-<p>Researchers can produce their own time-use estimates using the ATUS microdata files. The ATUS data files include information for over 190,000 respondents total from 2003 to 2017. Because of the size of these data files, it is easiest to work with them using statistical software such as Stata, SAS, or SPSS.</p>
-
-<p>The survey is sponsored by the Bureau of Labor Statistics and is conducted by the U.S. Census Bureau.</p>
-
-<p>The major purpose of ATUS is to develop nationally representative estimates of how people spend their time. The survey also provides information on the amount of time people spend in many other activities, such as religious activities, socializing, exercising, and relaxing. Demographic information such as sex, race, age, educational attainment, etc. is also available for each respondent. Can we estimate the value of unpaid work?</p>
-
-<p><a href="https://www.bls.gov/tus/data.htm">Microdata</a> 
- | <a href="https://www.bls.gov/tus/atususersguide.pdf">User Guide</a></p>
-<h2 class="post-list-heading">Posts</h2>
-    <ul class="post-list"><li><span class="post-meta">Aug 26, 2018</span>
-        <h3>
-          <a class="post-link" href="/jekyll/update/2018/08/26/welcome-to-jekyll.html">
-            Welcome to Jekyll!
-          </a>
-        </h3></li></ul>
-
-    <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p></div>
 
       </div>
     </main><footer class="site-footer h-card">
