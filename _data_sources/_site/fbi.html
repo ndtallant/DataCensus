@@ -1,0 +1,41 @@
+<p>The FBI Crime Data API is a read-only web service that returns JSON or CSV data. It is broadly organized around the FBI’s Uniform Crime Reporting systems data, and requires a <a href="https://api.data.gov/docs">data.gov API network</a> key. Agencies submit data using one of two reporting formats – the Summary Reporting System (SRS), or the National Incident Based Reporting System (NIBRS).</p>
+
+<p>The FBI also provides <a href="https://crime-data-explorer.fr.cloud.gov/api">full documentation</a> and <a href="https://github.com/fbi-cde">source code</a>.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="n">your_key_here</span> 
+<span class="n">base</span> <span class="o">=</span> <span class="s">'https://api.usa.gov/crime/fbi/sapi/'</span>
+<span class="n">offenses</span> <span class="o">=</span> <span class="p">[</span><span class="s">'burglary'</span><span class="p">,</span> <span class="s">'homicide'</span><span class="p">,</span> <span class="s">'rape'</span><span class="p">]</span>
+
+<span class="n">ori</span> <span class="o">=</span> <span class="s">'api/agencies?api_key='</span>
+<span class="n">crime</span> <span class="o">=</span> <span class="s">'api/summarized/agencies/{}/{}?api_key='</span>
+
+<span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">query</span><span class="p">):</span>
+    <span class="s">'''Returns a dictionary of data from an API request.'''</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">base</span> <span class="o">+</span> <span class="n">query</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">get_county_agencies</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">county</span><span class="p">):</span>
+    <span class="s">'''
+    Given a state and county, reutrns a list of
+    dictionaries - keys being Originating Agency Identifiers
+    (ORI) - for any county level agencies.
+    '''</span>
+    <span class="n">ori_list</span> <span class="o">=</span> <span class="p">[]</span> 
+    <span class="k">for</span> <span class="n">agency</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">state</span><span class="p">]:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">state</span><span class="p">][</span><span class="n">agency</span><span class="p">][</span><span class="s">'county_name'</span><span class="p">]</span> <span class="o">==</span> <span class="n">county</span><span class="p">:</span>
+            <span class="n">ori_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">state</span><span class="p">][</span><span class="n">agency</span><span class="p">])</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">continue</span>
+    <span class="k">return</span> <span class="n">ori_list</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">ori_query</span><span class="p">,</span> <span class="n">api_key</span><span class="p">)</span>
+<span class="n">wood_county_agencies</span> <span class="o">=</span> <span class="n">get_county_agencies</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s">'TX'</span><span class="p">,</span> <span class="s">'WOOD'</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_agency_crimes</span><span class="p">(</span><span class="n">ori</span><span class="p">,</span> <span class="n">offense</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">crime</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ori</span><span class="p">,</span> <span class="n">offense</span><span class="p">))</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+    <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="s">'results'</span><span class="p">]</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"R Code!"</span><span class="p">)</span></code></pre></figure>
+
