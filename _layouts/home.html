@@ -1,0 +1,10 @@
+---
+layout: default
+---
+
+{% for data in site.data_sources %}
+  <h2>{{ data.title }}</h2>
+  {{ data.content }}
+  <br>
+  <br>
+{% endfor %}

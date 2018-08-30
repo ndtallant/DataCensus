@@ -33,7 +33,7 @@ if __name__ == "__main__":
     with open('researchers.txt') as f:
         researchers = [x.replace('\n', '').strip() for x in f.readlines()]
 
-    with open('researches.csv', 'w', newline='') as csvfile:
+    with open('researchers.csv', 'w', newline='') as csvfile:
         fieldnames = ['name', 'id', 'email']
         writer = DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
