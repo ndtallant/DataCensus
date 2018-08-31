@@ -29,13 +29,24 @@ mapping = {1: 'New England'
 
 df = pd.read_table('atuscps_2017.dat', delimiter=',')
 df['division'] = df['GEDIV'].map(mapping)
+
 # See number of housing units by geographic division.
-print(df.groupby('division')['HEHOUSUT'].count())
+print(pd.crosstab(df.division, df.HEHOUSUT))
 {% endhighlight %}
 
 ### Example in R
 {% highlight r %}
 df <- read.csv("atuscps_2017.dat")
+df$GEDIV <- factor(df$GEDIV)
+levels(df$GEDIV) <- c("New England"
+                     ,  "Middle Atlantic"
+                     ,  "East North Central"
+                     ,  "West North Central"
+                     ,  "South Atlantic"
+                     ,  "East South Central"
+                     ,  "West South Central"
+                     ,  "Mountain"
+                     ,  "Pacific")
 
 # See number of housing units by geographic division.
 table(df$GEDIV, df$HEHOUSUT)

@@ -9,10 +9,21 @@ Each dataset from Analyze Boston typically has metadata and relevant information
 
 ### Example in Python
 {% highlight python %}
-print("Hello, World")
+import pandas as pd
+df = pd.read_csv('park-boston-monthly-transactions-by-zone-2015.csv')
+
+# Remove trailing whitespace in column names.
+df.columns = [c.strip() for c in df.columns]
+
+# See the 20 most used parking zones in January.
+print(df.sort_values('January', ascending=False)['Zone Name'].head(20))
+
 {% endhighlight %}
 
 ### Example in R
 {% highlight r %}
-print("Hello, World")
+df <- read.csv("park-boston-monthly-transactions-by-zone-2015.csv")
+
+# See the 20 most used parking zones in January.
+head(df$Zone.Name[order(df$January), decreasing = TRUE], 20)
 {% endhighlight %}

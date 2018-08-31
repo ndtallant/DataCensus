@@ -61,12 +61,23 @@
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s">'atuscps_2017.dat'</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">','</span><span class="p">)</span>
 <span class="n">df</span><span class="p">[</span><span class="s">'division'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">'GEDIV'</span><span class="p">]</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="n">mapping</span><span class="p">)</span>
+
 <span class="c"># See number of housing units by geographic division.</span>
-<span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">'division'</span><span class="p">)[</span><span class="s">'HEHOUSUT'</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span></code></pre></figure>
+<span class="k">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">division</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">HEHOUSUT</span><span class="p">))</span></code></pre></figure>
 
 <h3 id="example-in-r">Example in R</h3>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read.csv</span><span class="p">(</span><span class="s2">"atuscps_2017.dat"</span><span class="p">)</span><span class="w">
+</span><span class="n">df</span><span class="o">$</span><span class="n">GEDIV</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">GEDIV</span><span class="p">)</span><span class="w">
+</span><span class="n">levels</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">GEDIV</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"New England"</span><span class="w">
+                     </span><span class="p">,</span><span class="w">  </span><span class="s2">"Middle Atlantic"</span><span class="w">
+                     </span><span class="p">,</span><span class="w">  </span><span class="s2">"East North Central"</span><span class="w">
+                     </span><span class="p">,</span><span class="w">  </span><span class="s2">"West North Central"</span><span class="w">
+                     </span><span class="p">,</span><span class="w">  </span><span class="s2">"South Atlantic"</span><span class="w">
+                     </span><span class="p">,</span><span class="w">  </span><span class="s2">"East South Central"</span><span class="w">
+                     </span><span class="p">,</span><span class="w">  </span><span class="s2">"West South Central"</span><span class="w">
+                     </span><span class="p">,</span><span class="w">  </span><span class="s2">"Mountain"</span><span class="w">
+                     </span><span class="p">,</span><span class="w">  </span><span class="s2">"Pacific"</span><span class="p">)</span><span class="w">
 
 </span><span class="c1"># See number of housing units by geographic division.</span><span class="w">
 </span><span class="n">table</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">GEDIV</span><span class="p">,</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">HEHOUSUT</span><span class="p">)</span></code></pre></figure>
@@ -83,11 +94,21 @@ in the form of <a href="https://data.boston.gov/pages/glossary">data</a>, and to
 
 <h3 id="example-in-python">Example in Python</h3>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'park-boston-monthly-transactions-by-zone-2015.csv'</span><span class="p">)</span>
+
+<span class="c"># Remove trailing whitespace in column names.</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+
+<span class="c"># See the 20 most used parking zones in January.</span>
+<span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s">'January'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)[</span><span class="s">'Zone Name'</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span></code></pre></figure>
 
 <h3 id="example-in-r">Example in R</h3>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read.csv</span><span class="p">(</span><span class="s2">"park-boston-monthly-transactions-by-zone-2015.csv"</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># See the 20 most used parking zones in January.</span><span class="w">
+</span><span class="n">head</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">Zone.Name</span><span class="p">[</span><span class="n">order</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">January</span><span class="p">),</span><span class="w"> </span><span class="n">decreasing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">],</span><span class="w"> </span><span class="m">20</span><span class="p">)</span></code></pre></figure>
 
 
   <br>
