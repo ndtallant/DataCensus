@@ -10,5 +10,34 @@ The survey is sponsored by the Bureau of Labor Statistics and is conducted by th
 The major purpose of ATUS is to develop nationally representative estimates of how people spend their time. The survey also provides information on the amount of time people spend in many other activities, such as religious activities, socializing, exercising, and relaxing. Demographic information such as sex, race, age, educational attainment, etc. is also available for each respondent. Can we estimate the value of unpaid work?
 
 [Microdata](https://www.bls.gov/tus/data.htm) 
+ | [Data Dictionary](https://www.bls.gov/tus/atuscpscodebk17.pdf) 
  | [User Guide](https://www.bls.gov/tus/atususersguide.pdf)
+
+### Example in Python
+{% highlight python %}
+import pandas as pd
+
+mapping = {1: 'New England'
+         , 2: 'Middle Atlantic'
+         , 3: 'East North Central'
+         , 4: 'West North Central'
+         , 5: 'South Atlantic'
+         , 6: 'East South Central'
+         , 7: 'West South Central'
+         , 8: 'Mountain'
+         , 9: 'Pacific'}
+
+df = pd.read_table('atuscps_2017.dat', delimiter=',')
+df['division'] = df['GEDIV'].map(mapping)
+# See number of housing units by geographic division.
+print(df.groupby('division')['HEHOUSUT'].count())
+{% endhighlight %}
+
+### Example in R
+{% highlight r %}
+df <- read.csv("atuscps_2017.dat")
+
+# See number of housing units by geographic division.
+table(df$GEDIV, df$HEHOUSUT)
+{% endhighlight %}
 
