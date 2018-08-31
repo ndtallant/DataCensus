@@ -4,15 +4,7 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+The Harris School of Public Policy is [commited](https://harris.uchicago.edu/about/who-we-are/our-principles) to cultivating data driven policy makers. We hope to facilitate this goal by creating a resource for sharing policy-relevant datasets that have been accumulated and used by researchers within the University Community.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+This project was developed by [Allison Von Borstel](https://github.com/avonborstel) and [Nick Tallant](https://github.com/ndtallant), under the direction of [Jamie Saxon](https://github.com/JamesSaxon) and [Bevis Pardee](https://harris.uchicago.edu/directory/bevis-pardee).
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
