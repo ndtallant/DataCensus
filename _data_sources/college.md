@@ -7,11 +7,34 @@ The full documentation and data dictionary can be found at [here](https://colleg
 
 ### Example in Python
 {% highlight python %}
-print("Hello, World")
+import requests
+
+key = 'YOUR API KEY HERE'
+base = ('https://api.data.gov/ed/collegescorecard/v1/'
+        'schools?school.name=chicago&api_key=')
+
+response = requests.get(base + key)
+data = response.json()['results']
+
+# See all schools in Chicago
+for observation in data:
+    print(observation['school']['name'])
 {% endhighlight %}
 
 ### Example in R
 {% highlight r %}
-print("Hello, World")
+library(httr)
+
+key <- "YOUR API KEY HERE"
+base <- paste("https://api.data.gov/ed/collegescorecard/v1/"
+              , "schools?school.name=chicago&api_key="
+              , sep = "")
+response <- GET(paste(base, key, sep = ""))
+data <- content(response, "parsed")[["results"]]
+
+# See all schools in Chicago
+for (observation in data) {
+  print(observation[["school"]][["name"]])
+}
 {% endhighlight %}
 
