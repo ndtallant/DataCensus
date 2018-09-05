@@ -187,15 +187,18 @@ The full documentation and data dictionary can be found at <a href="https://coll
 <h3 id="example-in-r">Example in R</h3>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">httr</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">purrr</span><span class="p">)</span><span class="w">
 </span><span class="c1"># See MMBtu by year for the plant in Tracy, Nevada.</span><span class="w">
 </span><span class="n">url</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">paste</span><span class="p">(</span><span class="s2">"http://api.eia.gov/series/?api_key="</span><span class="w">
             </span><span class="p">,</span><span class="w"> </span><span class="s2">"YOUR_API_KEY&amp;"</span><span class="w">
             </span><span class="p">,</span><span class="w"> </span><span class="s2">"series_id=ELEC.PLANT.CONS_EG_BTU.2336-ALL-ALL.A"</span><span class="w">
             </span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">""</span><span class="p">)</span><span class="w">
-</span><span class="n">response</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">GET</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="w">
-</span><span class="n">info</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">content</span><span class="p">(</span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="s2">"parsed"</span><span class="p">)[[</span><span class="s2">"series"</span><span class="p">]]</span><span class="w">
 
-</span><span class="c1"># [0]['data'], columns=['Year', 'MMBtu'])</span></code></pre></figure>
+</span><span class="n">response</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">GET</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="w">
+</span><span class="n">data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">content</span><span class="p">(</span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="s2">"parsed"</span><span class="p">)[[</span><span class="s2">"series"</span><span class="p">]][[</span><span class="m">1</span><span class="p">]][[</span><span class="s2">"data"</span><span class="p">]]</span><span class="w">
+</span><span class="n">years</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">unlist</span><span class="p">((</span><span class="n">transpose</span><span class="p">(</span><span class="n">data</span><span class="p">)[[</span><span class="m">1</span><span class="p">]]))</span><span class="w">
+</span><span class="n">MMBtu</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">unlist</span><span class="p">((</span><span class="n">transpose</span><span class="p">(</span><span class="n">data</span><span class="p">)[[</span><span class="m">2</span><span class="p">]]))</span><span class="w">
+</span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">years</span><span class="p">,</span><span class="w"> </span><span class="n">MMBtu</span><span class="p">)</span></code></pre></figure>
 
 
   <br>
