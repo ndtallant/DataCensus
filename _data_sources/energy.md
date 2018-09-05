@@ -10,10 +10,29 @@ The U.S. Energy Information Administration has its data free and open through an
 
 ### Example in Python
 {% highlight python %}
-print("Hello, World")
+import requests
+import pandas
+
+# See MMBtu by year for the plant in Tracy, Nevada.
+url = ('http://api.eia.gov/series/?api_key=YOUR_API_KEY&'
+       'series_id=ELEC.PLANT.CONS_EG_BTU.2336-ALL-ALL.A')
+response = requests.get(url)
+info = response.json()
+
+df = pd.DataFrame(info['series'][0]['data'], columns=['Year', 'MMBtu'])
+
 {% endhighlight %}
 
 ### Example in R
 {% highlight r %}
-print("Hello, World")
+library(httr)
+# See MMBtu by year for the plant in Tracy, Nevada.
+url <- paste("http://api.eia.gov/series/?api_key="
+            , "YOUR_API_KEY&"
+            , "series_id=ELEC.PLANT.CONS_EG_BTU.2336-ALL-ALL.A"
+            , sep = "")
+response <- GET(url)
+info <- content(response, "parsed")[["series"]]
+
+# [0]['data'], columns=['Year', 'MMBtu'])
 {% endhighlight %}
