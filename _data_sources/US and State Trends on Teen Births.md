@@ -1,5 +1,5 @@
 ---
-title:  US and State Trends on Teen Births
+title:  US and State Trends on Teen Births (NCHS)
 tag: Healthcare Policy
 ---
 This [dataset](https://data.cdc.gov/NCHS/NCHS-U-S-and-State-Trends-on-Teen-Births/y268-sna3) assembles all final birth data for females aged 15–19, 15–17, and 18–19 for the United States and each of the 50 states. This particular dataset has 8 variables/columns and 4,212 rows. This particular dataset has 6 variables/columns and 10,296 rows. Each column is represented by a single field in its SODA API. Using filters and SoQL queries, researcher can search for records, limit results, and adjust the way the data is output

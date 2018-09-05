@@ -1,5 +1,5 @@
 ---
-title:  US Injury Mortality
+title:  US Injury Mortality (NCHS)
 tag: Healthcare Policy
 ---
 This [dataset](https://data.cdc.gov/NCHS/NCHS-Injury-Mortality-United-States/nt65-c7a7) describes injury mortality in the United States beginning in 1999. Two concepts are included in the circumstances of an injury death: intent of injury and mechanism of injury. This particular dataset has 17 variables/columns and 98,280 rows. Each column is represented by a single field in its SODA API. Using filters and SoQL queries, researcher can search for records, limit results, and adjust the way the data is output

@@ -1,5 +1,5 @@
 ---
-title:  Drug Poisoning Mortality by State
+title:  Drug Poisoning Mortality by State (NCHS)
 tag: Healthcare Policy
 ---
 This [dataset](https://data.cdc.gov/NCHS/NCHS-Drug-Poisoning-Mortality-by-State-United-Stat/jx6g-fdh6) describes drug poisoning deaths at the U.S. and state level by selected demographic characteristics, and includes age-adjusted death rates for drug poisoning from 1999 to 2015. This particular dataset has 18 variables/columns and 2,703 rows. Each column is represented by a single field in its SODA API. Using filters and SoQL queries, researcher can search for records, limit results, and adjust the way the data is output
