@@ -26,13 +26,16 @@ df = pd.DataFrame(info['series'][0]['data'], columns=['Year', 'MMBtu'])
 ### Example in R
 {% highlight r %}
 library(httr)
+library(purrr)
 # See MMBtu by year for the plant in Tracy, Nevada.
 url <- paste("http://api.eia.gov/series/?api_key="
             , "YOUR_API_KEY&"
             , "series_id=ELEC.PLANT.CONS_EG_BTU.2336-ALL-ALL.A"
             , sep = "")
-response <- GET(url)
-info <- content(response, "parsed")[["series"]]
 
-# [0]['data'], columns=['Year', 'MMBtu'])
+response <- GET(url)
+data <- content(response, "parsed")[["series"]][[1]][["data"]]
+years <- unlist((transpose(data)[[1]]))
+MMBtu <- unlist((transpose(data)[[2]]))
+df <- data.frame(years, MMBtu)
 {% endhighlight %}
