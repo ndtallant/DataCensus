@@ -1,5 +1,5 @@
 ---
-title:  US Leading Causes of Death
+title:  US Leading Causes of Death (NCHS)
 tag: Healthcare Policy
 ---
 This [dataset](https://data.cdc.gov/NCHS/NCHS-Leading-Causes-of-Death-United-States/bi63-dtpu) presents the age-adjusted death rates for the 10 leading causes of death in the United States beginning in 1999. This particular dataset has 6 variables/columns and 10,296 rows. Each column is represented by a single field in its SODA API. Using filters and SoQL queries, researcher can search for records, limit results, and adjust the way the data is output

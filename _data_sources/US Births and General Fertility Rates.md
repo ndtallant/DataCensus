@@ -1,5 +1,5 @@
 ---
-title:  US Births and General Fertility Rates
+title:  US Births and General Fertility Rates (NCHS)
 tag: Healthcare Policy
 ---
 This [dataset](https://data.cdc.gov/NCHS/NCHS-Births-and-General-Fertility-Rates-United-Sta/e6fc-ccez) includes crude birth rates and general fertility rates in the United States since 1909. This particular dataset has 4 variables/columns and 107 rows. Each column is represented by a single field in its SODA API. Using filters and SoQL queries, researcher can search for records, limit results, and adjust the way the data is output.
