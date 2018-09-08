@@ -1,6 +1,6 @@
 ---
 title:  City of Boston
-tag: municipal government
+tag: Municipal Government
 ---
 Analyze Boston is the City of Boston's open data hub to find facts, figures, and maps related to our lives within the city. We are working to make this the default technology platform to support the publication of the City's public information, 
 in the form of [data](https://data.boston.gov/pages/glossary), and to make this information easy to find, access, and use by a broad audience. This platform is managed by the [Citywide Analytics Team](https://www.boston.gov/departments/analytics-team). 

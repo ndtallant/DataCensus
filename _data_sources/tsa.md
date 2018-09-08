@@ -1,6 +1,6 @@
 ---
 title: TSA API
-tag: security
+tag: Security
 ---
 
 The MyTSA Web Service API supports several features, some of which include: Security Checkpoint Wait Times, TSA Pre-Check locations, and Sunrise/Sunset times for all locations.

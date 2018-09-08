@@ -1,6 +1,6 @@
 ---
 title: Feed Grains' Yearbook Tables (USDA)
-tag: agriculture
+tag: Agriculture
 ---
 This data product provided by the USDA contains statistics on four main feed grains - corn, grain sorghum, barley, and oats - as well as foreign coarse grains such as rye, millet, hay, and related items. This includes data published in the monthly Feed Outlook and previously annual Feed Yearbook. Data are monthly, quarterly, and/or annual depending upon the data series.
 

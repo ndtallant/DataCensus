@@ -1,6 +1,6 @@
 ---
 title: National Longitudinal Surveys (NLS)
-tag: social science
+tag: Social Science
 ---
 Information on the labor market activities and other significant life events of several groups of men and women at multiple points in time. For more than 4 decades, NLS data have served as an important tool for economists, sociologists, and other researchers.The NLS program includes the following cohorts :
 

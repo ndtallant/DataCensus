@@ -1,6 +1,6 @@
 ---
 title: FBI Crime Data API
-tag: crime
+tag: Crime
 ---
 The FBI Crime Data API is a read-only web service that returns JSON or CSV data. It is broadly organized around the FBI’s Uniform Crime Reporting systems data, and requires a [data.gov API network](https://api.data.gov/docs) key. Agencies submit data using one of two reporting formats -- the Summary Reporting System (SRS), or the National Incident Based Reporting System (NIBRS). 
 

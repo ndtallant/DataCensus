@@ -38,8 +38,10 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Education</a>
-          <a class="dropdown-item" href="#">Health</a>
+          <a class="dropdown-item" href="#">Healthcare</a>
           <a class="dropdown-item" href="#">Crime</a>
+          <a class="dropdown-item" href="#">Economic</a>
+          <a class="dropdown-item" href="#">Municipal Government</a>
           <a class="dropdown-item" href="#">All</a>
 
         </div>
@@ -62,26 +64,15 @@
   <br>
   <br>
 
-  <h2>Drug Poisoning Mortality by County (NCHS)</h2>
-  <p>This <a href="https://data.cdc.gov/NCHS/NCHS-Drug-Poisoning-Mortality-by-County-United-Sta/pbkm-d27e">dataset</a> describes drug poisoning deaths at the county level by selected demographic characteristics and includes age-adjusted death rates for drug poisoning from 1999 to 2015. This particular dataset has 8 variables/columns and 53,387 rows. Each column is represented by a single field in its SODA API. Using filters and SoQL queries, researcher can search for records, limit results, and adjust the way the data is output</p>
+  <h2>Drug Poisoning Mortality (NCHS)</h2>
+  <p>The National Center of Health Statistics publishes this data at the <a href="https://data.cdc.gov/NCHS/NCHS-Drug-Poisoning-Mortality-by-County-United-Sta/pbkm-d27e">county</a> and <a href="https://data.cdc.gov/NCHS/NCHS-Drug-Poisoning-Mortality-by-State-United-Stat/jx6g-fdh6">state</a> level as flat files and through an API. 
+Each dataset describes drug poisoning deaths by selected demographic characteristics, and includes age-adjusted death rates for drug poisoning from 1999 to 2015.
+The county level dataset has 8 variables/columns and 53,387 rows, which are described in the <a href="https://dev.socrata.com/foundry/data.cdc.gov/tenp-43rk">API Documentation</a>. The state level dataset also has full <a href="https://dev.socrata.com/foundry/data.cdc.gov/fqf8-qnrv">documentation</a> of its 18 variables/columns and 2,703 rows.</p>
 
-<p>All of the data are aggregated into a CSV or CSV for Excel spreadsheet for easy download. Additional formats for download also include RDF, RSS, TSV for Excel, and XML.</p>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World!"</span><span class="p">)</span></code></pre></figure>
 
-<p>Documentation on the latest version of this dataset provides complete information on variables, data sources, dataset identifier, definitions, and classifications can be found at the API docs <a href="https://dev.socrata.com/foundry/data.cdc.gov/tenp-43rk">here</a></p>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World!"</span><span class="p">)</span></code></pre></figure>
 
-<p>All communication with the API is done through HTTPS, and errors are communicated through HTTP response codes. Available response types include JSON, XML, and CSV, which are selectable by the “extension” (.json, etc.) on the API endpoint or through content-negotiation with HTTP Accepts headers.</p>
-
-  <br>
-  <br>
-
-  <h2>Drug Poisoning Mortality by State (NCHS)</h2>
-  <p>This <a href="https://data.cdc.gov/NCHS/NCHS-Drug-Poisoning-Mortality-by-State-United-Stat/jx6g-fdh6">dataset</a> describes drug poisoning deaths at the U.S. and state level by selected demographic characteristics, and includes age-adjusted death rates for drug poisoning from 1999 to 2015. This particular dataset has 18 variables/columns and 2,703 rows. Each column is represented by a single field in its SODA API. Using filters and SoQL queries, researcher can search for records, limit results, and adjust the way the data is output</p>
-
-<p>All of the data are aggregated into a CSV or CSV for Excel spreadsheet for easy download. Additional formats for download also include RDF, RSS, TSV for Excel, and XML.</p>
-
-<p>Documentation on the latest version of this dataset provides complete information on variables, data sources, dataset identifier, definitions, and classifications can be found at the API docs <a href="https://dev.socrata.com/foundry/data.cdc.gov/fqf8-qnrv">here</a></p>
-
-<p>All communication with the API is done through HTTPS, and errors are communicated through HTTP response codes. Available response types include JSON, XML, and CSV, which are selectable by the “extension” (.json, etc.) on the API endpoint or through content-negotiation with HTTP Accepts headers.</p>
 
   <br>
   <br>
@@ -139,7 +130,7 @@
 
 <p>The survey is sponsored by the Bureau of Labor Statistics and is conducted by the U.S. Census Bureau.</p>
 
-<p>The major purpose of ATUS is to develop nationally representative estimates of how people spend their time. The survey also provides information on the amount of time people spend in many other activities, such as religious activities, socializing, exercising, and relaxing. Demographic information such as sex, race, age, educational attainment, etc. is also available for each respondent. Can we estimate the value of unpaid work?</p>
+<p>The major purpose of ATUS is to develop nationally representative estimates of how people spend their time. The survey also provides information on the amount of time people spend in many other activities, such as religious activities, socializing, exercising, and relaxing. Demographic information such as sex, race, age, educational attainment, etc. is also available for each respondent.</p>
 
 <p><a href="https://www.bls.gov/tus/data.htm">Microdata</a> 
  | <a href="https://www.bls.gov/tus/atuscpscodebk17.pdf">Data Dictionary</a> 

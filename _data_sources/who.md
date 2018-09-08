@@ -1,6 +1,6 @@
 ---
 title: Global Health Observatory Data Repository
-tag: health
+tag: Healthcare 
 ---
 The Global Health Observatory data repository is the World Health Organization's gateway to health-related statistics for its 194 Member States. It provides access to over 1000 indicators on priority health topics including mortality and burden of diseases, the Millennium Development Goals (child nutrition, child health, maternal and reproductive health, immunization, HIV/AIDS, tuberculosis, malaria, neglected diseases, water and sanitation), non communicable diseases and risk factors, epidemic-prone diseases, health systems, environmental health, violence and injuries, equity among others.
 
