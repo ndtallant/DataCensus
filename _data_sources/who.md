@@ -6,7 +6,8 @@ The Global Health Observatory data repository is the World Health Organization's
 
 Many of these datasets represent the best estimates of WHO using methodologies for specific indicators that aim for comparability across countries and time. Please check the Indicator and Measurement Registry for indicator specific information. Additional metadata and definitions can be found [here](http://apps.who.int/gho/data/node.metadata). The World Health Organization also provides [examples of API usage](http://apps.who.int/gho/data/node.resources.examples?lang=en).
 
-### Example in Python
+<button data-toggle="collapse" data-target="#who_python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button>
+<div id="who_python" class="collapse">
 {% highlight python %}
 import requests
 import numpy as np
@@ -46,8 +47,10 @@ if __name__ == "__main__":
     print(df.head())
     df.to_csv('WHO_ad_data.csv', index=False)
 {% endhighlight %}
+</div>
 
-### Example in R
+<button data-toggle="collapse" data-target="#who_r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button>
+<div id="who_r" class="collapse">
 {% highlight r %}
 library(readr)
 library(dplyr)
@@ -68,3 +71,6 @@ ggplot(by.region, aes(x = YEAR, y = mean.Numeric, color = REGION)) +
   ggtitle('Obesity Rates Over Time', subtitle = 'Grouped By Region') +
 ylab('Average Obesity Rate')
 {% endhighlight %}
+</div>
+
+

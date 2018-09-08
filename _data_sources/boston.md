@@ -7,7 +7,8 @@ in the form of [data](https://data.boston.gov/pages/glossary), and to make this 
 
 Each dataset from Analyze Boston typically has metadata and relevant information. For example, [this dataset from ParkBoston](https://data.boston.gov/dataset/park-boston-monthly-transactions-by-zone-2015).
 
-### Example in Python
+<button data-toggle="collapse" data-target="#boston_python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button>
+<div id="boston_python" class="collapse">
 {% highlight python %}
 import pandas as pd
 df = pd.read_csv('park-boston-monthly-transactions-by-zone-2015.csv')
@@ -19,11 +20,14 @@ df.columns = [c.strip() for c in df.columns]
 print(df.sort_values('January', ascending=False)['Zone Name'].head(20))
 
 {% endhighlight %}
+</div>
 
-### Example in R
+<button data-toggle="collapse" data-target="#boston_r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button>
+<div id="boston_r" class="collapse">
 {% highlight r %}
 df <- read.csv("park-boston-monthly-transactions-by-zone-2015.csv")
 
 # See the 20 most used parking zones in January.
 head(df$Zone.Name[order(df$January), decreasing = TRUE], 20)
 {% endhighlight %}
+</div>

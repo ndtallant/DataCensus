@@ -42,7 +42,11 @@
           <a class="dropdown-item" href="#">Crime</a>
           <a class="dropdown-item" href="#">Economic</a>
           <a class="dropdown-item" href="#">Municipal Government</a>
-          <a class="dropdown-item" href="#">All</a>
+          <a class="dropdown-item" href="#">Agriculture</a>
+          <a class="dropdown-item" href="#">Nutrition</a>
+          <a class="dropdown-item" href="#">Social Science</a>
+          <a class="dropdown-item" href="#">Security</a>
+          <a class="dropdown-item" href="/">All</a>
 
         </div>
       </li>
@@ -59,7 +63,20 @@
 
 <p>Documentation on the latest version of this dataset provides complete information on variables, data sources, dataset identifier, definitions, and classifications can be found <a href="https://dev.socrata.com/foundry/data.cdc.gov/bgqx-uh4z">here</a></p>
 
-<p>All communication with the API is done through HTTPS, and errors are communicated through HTTP response codes. Available response types include JSON, XML, and CSV, which are selectable by the “extension” (.json, etc.) on the API endpoint or through content-negotiation with HTTP Accepts headers.</p>
+<p><button data-toggle="collapse" data-target="#death_python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
+<div id="death_python" class="collapse">
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Hello, World!"</span><span class="p">)</span></code></pre></figure>
+
+</div>
+
+<p><button data-toggle="collapse" data-target="#death_r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
+<div id="death_r" class="collapse">
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World!"</span><span class="p">)</span></code></pre></figure>
+
+</div>
 
   <br>
   <br>
@@ -136,43 +153,51 @@ The county level dataset has 8 variables/columns and 53,387 rows, which are desc
  | <a href="https://www.bls.gov/tus/atuscpscodebk17.pdf">Data Dictionary</a> 
  | <a href="https://www.bls.gov/tus/atususersguide.pdf">User Guide</a></p>
 
-<h3 id="example-in-python">Example in Python</h3>
+<p><button data-toggle="collapse" data-target="#atus_python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
+<div id="atus_python" class="collapse">
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+    
+<figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
 
-<span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s">'New England'</span>
-         <span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s">'Middle Atlantic'</span>
-         <span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s">'East North Central'</span>
-         <span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s">'West North Central'</span>
-         <span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s">'South Atlantic'</span>
-         <span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="s">'East South Central'</span>
-         <span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="s">'West South Central'</span>
-         <span class="p">,</span> <span class="mi">8</span><span class="p">:</span> <span class="s">'Mountain'</span>
-         <span class="p">,</span> <span class="mi">9</span><span class="p">:</span> <span class="s">'Pacific'</span><span class="p">}</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s">'New England'</span>
+             <span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s">'Middle Atlantic'</span>
+             <span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s">'East North Central'</span>
+             <span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s">'West North Central'</span>
+             <span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s">'South Atlantic'</span>
+             <span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="s">'East South Central'</span>
+             <span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="s">'West South Central'</span>
+             <span class="p">,</span> <span class="mi">8</span><span class="p">:</span> <span class="s">'Mountain'</span>
+             <span class="p">,</span> <span class="mi">9</span><span class="p">:</span> <span class="s">'Pacific'</span><span class="p">}</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s">'atuscps_2017.dat'</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">','</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s">'division'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">'GEDIV'</span><span class="p">]</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="n">mapping</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s">'atuscps_2017.dat'</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">','</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s">'division'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">'GEDIV'</span><span class="p">]</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="n">mapping</span><span class="p">)</span>
 
-<span class="c"># See number of housing units by geographic division.</span>
-<span class="k">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">division</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">HEHOUSUT</span><span class="p">))</span></code></pre></figure>
+    <span class="c"># See number of housing units by geographic division.</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">division</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">HEHOUSUT</span><span class="p">))</span>
+    </code></pre></figure>
 
-<h3 id="example-in-r">Example in R</h3>
+</div>
+<p><button data-toggle="collapse" data-target="#atus_r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
+<div id="atus_r" class="collapse">
+    
+    
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="w">    </span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read.csv</span><span class="p">(</span><span class="s2">"atuscps_2017.dat"</span><span class="p">)</span><span class="w">
+    </span><span class="n">df</span><span class="o">$</span><span class="n">GEDIV</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">GEDIV</span><span class="p">)</span><span class="w">
+    </span><span class="n">levels</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">GEDIV</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"New England"</span><span class="w">
+                         </span><span class="p">,</span><span class="w">  </span><span class="s2">"Middle Atlantic"</span><span class="w">
+                         </span><span class="p">,</span><span class="w">  </span><span class="s2">"East North Central"</span><span class="w">
+                         </span><span class="p">,</span><span class="w">  </span><span class="s2">"West North Central"</span><span class="w">
+                         </span><span class="p">,</span><span class="w">  </span><span class="s2">"South Atlantic"</span><span class="w">
+                         </span><span class="p">,</span><span class="w">  </span><span class="s2">"East South Central"</span><span class="w">
+                         </span><span class="p">,</span><span class="w">  </span><span class="s2">"West South Central"</span><span class="w">
+                         </span><span class="p">,</span><span class="w">  </span><span class="s2">"Mountain"</span><span class="w">
+                         </span><span class="p">,</span><span class="w">  </span><span class="s2">"Pacific"</span><span class="p">)</span><span class="w">
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read.csv</span><span class="p">(</span><span class="s2">"atuscps_2017.dat"</span><span class="p">)</span><span class="w">
-</span><span class="n">df</span><span class="o">$</span><span class="n">GEDIV</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">GEDIV</span><span class="p">)</span><span class="w">
-</span><span class="n">levels</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">GEDIV</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"New England"</span><span class="w">
-                     </span><span class="p">,</span><span class="w">  </span><span class="s2">"Middle Atlantic"</span><span class="w">
-                     </span><span class="p">,</span><span class="w">  </span><span class="s2">"East North Central"</span><span class="w">
-                     </span><span class="p">,</span><span class="w">  </span><span class="s2">"West North Central"</span><span class="w">
-                     </span><span class="p">,</span><span class="w">  </span><span class="s2">"South Atlantic"</span><span class="w">
-                     </span><span class="p">,</span><span class="w">  </span><span class="s2">"East South Central"</span><span class="w">
-                     </span><span class="p">,</span><span class="w">  </span><span class="s2">"West South Central"</span><span class="w">
-                     </span><span class="p">,</span><span class="w">  </span><span class="s2">"Mountain"</span><span class="w">
-                     </span><span class="p">,</span><span class="w">  </span><span class="s2">"Pacific"</span><span class="p">)</span><span class="w">
+    </span><span class="c1"># See number of housing units by geographic division.</span><span class="w">
+    </span><span class="n">table</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">GEDIV</span><span class="p">,</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">HEHOUSUT</span><span class="p">)</span><span class="w">
+    </span></code></pre></figure>
 
-</span><span class="c1"># See number of housing units by geographic division.</span><span class="w">
-</span><span class="n">table</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">GEDIV</span><span class="p">,</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">HEHOUSUT</span><span class="p">)</span></code></pre></figure>
-
+</div>
 
   <br>
   <br>
@@ -183,7 +208,8 @@ in the form of <a href="https://data.boston.gov/pages/glossary">data</a>, and to
 
 <p>Each dataset from Analyze Boston typically has metadata and relevant information. For example, <a href="https://data.boston.gov/dataset/park-boston-monthly-transactions-by-zone-2015">this dataset from ParkBoston</a>.</p>
 
-<h3 id="example-in-python">Example in Python</h3>
+<p><button data-toggle="collapse" data-target="#boston_python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
+<div id="boston_python" class="collapse">
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'park-boston-monthly-transactions-by-zone-2015.csv'</span><span class="p">)</span>
@@ -194,13 +220,17 @@ in the form of <a href="https://data.boston.gov/pages/glossary">data</a>, and to
 <span class="c"># See the 20 most used parking zones in January.</span>
 <span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s">'January'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)[</span><span class="s">'Zone Name'</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span></code></pre></figure>
 
-<h3 id="example-in-r">Example in R</h3>
+</div>
+
+<p><button data-toggle="collapse" data-target="#boston_r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
+<div id="boston_r" class="collapse">
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read.csv</span><span class="p">(</span><span class="s2">"park-boston-monthly-transactions-by-zone-2015.csv"</span><span class="p">)</span><span class="w">
 
 </span><span class="c1"># See the 20 most used parking zones in January.</span><span class="w">
 </span><span class="n">head</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">Zone.Name</span><span class="p">[</span><span class="n">order</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">January</span><span class="p">),</span><span class="w"> </span><span class="n">decreasing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">],</span><span class="w"> </span><span class="m">20</span><span class="p">)</span></code></pre></figure>
 
+</div>
 
   <br>
   <br>
@@ -209,7 +239,9 @@ in the form of <a href="https://data.boston.gov/pages/glossary">data</a>, and to
   <p>This API makes all data available from the Department of Education’s College Scorecard, as well as supporting data on student completion, debt and repayment, earnings, and more. The files include data from 1996 through 2016 for all undergraduate degree-granting institutions of higher education. Data includes institution level characteristic such as average cost of attendance and retention rates for first-time students, as well as student characteristics such as student body by ethnicity and age. 
 The full documentation and data dictionary can be found at <a href="https://collegescorecard.ed.gov/data/documentation/">here</a>.</p>
 
-<h3 id="example-in-python">Example in Python</h3>
+<p><button data-toggle="collapse" data-target="#college-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
+<div id="college-python" class="collapse">
+
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
 
@@ -224,7 +256,11 @@ The full documentation and data dictionary can be found at <a href="https://coll
 <span class="k">for</span> <span class="n">observation</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="n">observation</span><span class="p">[</span><span class="s">'school'</span><span class="p">][</span><span class="s">'name'</span><span class="p">])</span></code></pre></figure>
 
-<h3 id="example-in-r">Example in R</h3>
+</div>
+
+<p><button data-toggle="collapse" data-target="#college-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
+<div id="college-r" class="collapse">
+
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">httr</span><span class="p">)</span><span class="w">
 
@@ -240,6 +276,7 @@ The full documentation and data dictionary can be found at <a href="https://coll
   </span><span class="n">print</span><span class="p">(</span><span class="n">observation</span><span class="p">[[</span><span class="s2">"school"</span><span class="p">]][[</span><span class="s2">"name"</span><span class="p">]])</span><span class="w">
 </span><span class="p">}</span></code></pre></figure>
 
+</div>
 
   <br>
   <br>
@@ -290,6 +327,9 @@ The full documentation and data dictionary can be found at <a href="https://coll
 
 <p>The FBI also provides <a href="https://crime-data-explorer.fr.cloud.gov/api">full documentation</a> and <a href="https://github.com/fbi-cde">source code</a>.</p>
 
+<p><button data-toggle="collapse" data-target="#fbi_python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
+<div id="fbi_python" class="collapse">
+
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">api_key</span> <span class="o">=</span> <span class="n">your_key_here</span> 
 <span class="n">base</span> <span class="o">=</span> <span class="s">'https://api.usa.gov/crime/fbi/sapi/'</span>
@@ -324,9 +364,20 @@ The full documentation and data dictionary can be found at <a href="https://coll
 <span class="k">def</span> <span class="nf">get_agency_crimes</span><span class="p">(</span><span class="n">ori</span><span class="p">,</span> <span class="n">offense</span><span class="p">):</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">crime</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ori</span><span class="p">,</span> <span class="n">offense</span><span class="p">))</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
     <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="s">'results'</span><span class="p">]</span></code></pre></figure>
+ 
+</div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"R Code!"</span><span class="p">)</span></code></pre></figure>
+<p><button data-toggle="collapse" data-target="#fbi_r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
+<div id="fbi_r" class="collapse">
+  
 
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">httr</span><span class="p">)</span><span class="w">
+</span><span class="n">url</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">paste</span><span class="p">(</span><span class="w">
+            </span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">""</span><span class="p">)</span><span class="w">
+
+</span><span class="n">response</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">GET</span><span class="p">(</span><span class="n">url</span><span class="p">)</span></code></pre></figure>
+
+</div>
 
   <br>
   <br>
@@ -493,7 +544,8 @@ Data can be queried by state and/or airport. The TSA provides XML files of data 
 
 <p>Many of these datasets represent the best estimates of WHO using methodologies for specific indicators that aim for comparability across countries and time. Please check the Indicator and Measurement Registry for indicator specific information. Additional metadata and definitions can be found <a href="http://apps.who.int/gho/data/node.metadata">here</a>. The World Health Organization also provides <a href="http://apps.who.int/gho/data/node.resources.examples?lang=en">examples of API usage</a>.</p>
 
-<h3 id="example-in-python">Example in Python</h3>
+<p><button data-toggle="collapse" data-target="#who_python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
+<div id="who_python" class="collapse">
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
@@ -533,7 +585,10 @@ Data can be queried by state and/or airport. The TSA provides XML files of data 
     <span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
     <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">'WHO_ad_data.csv'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span></code></pre></figure>
 
-<h3 id="example-in-r">Example in R</h3>
+</div>
+
+<p><button data-toggle="collapse" data-target="#who_r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
+<div id="who_r" class="collapse">
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">readr</span><span class="p">)</span><span class="w">
 </span><span class="n">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span><span class="w">
@@ -553,6 +608,8 @@ Data can be queried by state and/or airport. The TSA provides XML files of data 
   </span><span class="n">geom_line</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
   </span><span class="n">ggtitle</span><span class="p">(</span><span class="s1">'Obesity Rates Over Time'</span><span class="p">,</span><span class="w"> </span><span class="n">subtitle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Grouped By Region'</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
 </span><span class="n">ylab</span><span class="p">(</span><span class="s1">'Average Obesity Rate'</span><span class="p">)</span></code></pre></figure>
+
+</div>
 
 
   <br>
