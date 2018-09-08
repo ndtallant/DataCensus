@@ -18,7 +18,7 @@ title: Data Census
 description: >- # this means to ignore newlines until "baseurl:"
     This project aims to facilitate the Harris' mission by creating a resource for sharing policy-relevant datasets that have been accumulated, cleaned up, and purchased by researchers around the University Community.
 
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "/DataCensus" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: HarrisPolicy 
 github_username: ndtallant 
 
