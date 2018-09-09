@@ -8,7 +8,8 @@ The U.S. Energy Information Administration has its data free and open through an
 - [Copyrights and Reuse](https://www.eia.gov/about/copyrights_reuse.cfm)
 - [Full Documentation](https://www.eia.gov/opendata/commands.php)
 
-### Example in Python
+<button data-toggle="collapse" data-target="#energy-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button>
+<div id="energy-python" class="collapse">
 {% highlight python %}
 import requests
 import pandas
@@ -22,8 +23,10 @@ info = response.json()
 df = pd.DataFrame(info['series'][0]['data'], columns=['Year', 'MMBtu'])
 
 {% endhighlight %}
+</div>
 
-### Example in R
+<button data-toggle="collapse" data-target="#energy-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button>
+<div id="energy-r" class="collapse">
 {% highlight r %}
 library(httr)
 library(purrr)
@@ -39,3 +42,4 @@ years <- unlist((transpose(data)[[1]]))
 MMBtu <- unlist((transpose(data)[[2]]))
 df <- data.frame(years, MMBtu)
 {% endhighlight %}
+</div>
