@@ -56,6 +56,33 @@
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
         
+  <h2>US Births and General Fertility Rates (NCHS)</h2>
+  <p>The National Center for Healthcare Statistics provides this data as flatfiles and through a <a href="https://dev.socrata.com/foundry/data.cdc.gov/tndt-s2gv">well documented API</a>.
+The <a href="https://data.cdc.gov/NCHS/NCHS-Births-and-General-Fertility-Rates-United-Sta/e6fc-ccez">dataset</a> includes crude birth rates and general fertility rates in the United States since 1909. This particular dataset has 107 observations accounting for year, birth number, crude birth rate, and general fertility rate.</p>
+
+<p><button data-toggle="collapse" data-target="#births-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
+<div id="births-python" class="collapse">
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="c"># See all observations in 1909.</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s">'https://data.cdc.gov/resource/tndt-s2gv.json?year=1909'</span><span class="p">)</span></code></pre></figure>
+
+</div>
+
+<p><button data-toggle="collapse" data-target="#births-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
+<div id="births-r" class="collapse">
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">RSocrata</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># See all observations in 1909.</span><span class="w">
+</span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read.socrata</span><span class="p">(</span><span class="s2">"https://data.cdc.gov/resource/tndt-s2gv.json?year=1909"</span><span class="p">)</span></code></pre></figure>
+
+</div>
+
+  <br>
+  <br>
+
   <h2>US Death Rates and Life Expectancy at Birth (NCHS)</h2>
   <p>This <a href="https://data.cdc.gov/NCHS/NCHS-Death-rates-and-life-expectancy-at-birth/w9j2-ggv5">dataset</a> of U.S. mortality trends since 1900 highlights the differences in age-adjusted death rates and life expectancy at birth by race and sex. This particular dataset has 1,044 observations accounting for year, age, race, sex, average life expectancy in years, and mortality.</p>
 
@@ -117,18 +144,6 @@ The county level dataset has 8 variables/columns and 53,387 rows, which are desc
   <br>
   <br>
 
-  <h2>US Births and General Fertility Rates (NCHS)</h2>
-  <p>This <a href="https://data.cdc.gov/NCHS/NCHS-Births-and-General-Fertility-Rates-United-Sta/e6fc-ccez">dataset</a> includes crude birth rates and general fertility rates in the United States since 1909. This particular dataset has 4 variables/columns and 107 rows. Each column is represented by a single field in its SODA API. Using filters and SoQL queries, researcher can search for records, limit results, and adjust the way the data is output.</p>
-
-<p>All of the data are aggregated into a CSV or CSV for Excel spreadsheet for easy download. Additional formats for download also include RDF, RSS, TSV for Excel, and XML.</p>
-
-<p>Documentation on the latest version of this dataset provides complete information on variables, data sources, dataset identifier, definitions, and classifications can be found <a href="https://dev.socrata.com/foundry/data.cdc.gov/tndt-s2gv">here</a></p>
-
-<p>All communication with the API is done through HTTPS, and errors are communicated through HTTP response codes. Available response types include JSON, XML, and CSV, which are selectable by the “extension” (.json, etc.) on the API endpoint or through content-negotiation with HTTP Accepts headers.</p>
-
-  <br>
-  <br>
-
   <h2>US Injury Mortality (NCHS)</h2>
   <p>This <a href="https://data.cdc.gov/NCHS/NCHS-Injury-Mortality-United-States/nt65-c7a7">dataset</a> describes injury mortality in the United States beginning in 1999. Two concepts are included in the circumstances of an injury death: intent of injury and mechanism of injury. This particular dataset has 17 variables/columns and 98,280 rows. Each column is represented by a single field in its SODA API. Using filters and SoQL queries, researcher can search for records, limit results, and adjust the way the data is output</p>
 
@@ -136,7 +151,17 @@ The county level dataset has 8 variables/columns and 53,387 rows, which are desc
 
 <p>Documentation on the latest version of this dataset provides complete information on variables, data sources, dataset identifier, definitions, and classifications can be found at the API docs <a href="https://dev.socrata.com/foundry/data.cdc.gov/6j4j-ispt">here</a></p>
 
-<p>All communication with the API is done through HTTPS, and errors are communicated through HTTP response codes. Available response types include JSON, XML, and CSV, which are selectable by the “extension” (.json, etc.) on the API endpoint or through content-negotiation with HTTP Accepts headers.</p>
+<p><button data-toggle="collapse" data-target="#InjuryMortality-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
+<div id="InjuryMortality-python" class="collapse">
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span></code></pre></figure>
+
+</div>
+
+<p><button data-toggle="collapse" data-target="#InjuryMortality-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
+<div id="InjuryMortality-r" class="collapse">
+
+</div>
 
   <br>
   <br>
@@ -148,7 +173,93 @@ The county level dataset has 8 variables/columns and 53,387 rows, which are desc
 
 <p>Documentation on the latest version of this dataset provides complete information on variables, data sources, dataset identifier, definitions, and classifications can be found at the API docs <a href="https://dev.socrata.com/foundry/data.cdc.gov/u4d7-xz8k">here</a></p>
 
-<p>All communication with the API is done through HTTPS, and errors are communicated through HTTP response codes. Available response types include JSON, XML, and CSV, which are selectable by the “extension” (.json, etc.) on the API endpoint or through content-negotiation with HTTP Accepts headers.</p>
+<p><button data-toggle="collapse" data-target="#LeadingCausesOfDeath-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
+<div id="LeadingCausesOfDeath-python" class="collapse">
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span></code></pre></figure>
+
+</div>
+
+<p><button data-toggle="collapse" data-target="#LeadingCausesOfDeath-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
+<div id="LeadingCausesOfDeath-r" class="collapse">
+
+</div>
+
+  <br>
+  <br>
+
+  <h2>Global Health Observatory Data Repository</h2>
+  <p>The Global Health Observatory data repository is the World Health Organization’s gateway to health-related statistics for its 194 Member States. It provides access to over 1000 indicators on priority health topics including mortality and burden of diseases, the Millennium Development Goals (child nutrition, child health, maternal and reproductive health, immunization, HIV/AIDS, tuberculosis, malaria, neglected diseases, water and sanitation), non communicable diseases and risk factors, epidemic-prone diseases, health systems, environmental health, violence and injuries, equity among others.</p>
+
+<p>Many of these datasets represent the best estimates of WHO using methodologies for specific indicators that aim for comparability across countries and time. Please check the Indicator and Measurement Registry for indicator specific information. Additional metadata and definitions can be found <a href="http://apps.who.int/gho/data/node.metadata">here</a>. The World Health Organization also provides <a href="http://apps.who.int/gho/data/node.resources.examples?lang=en">examples of API usage</a>.</p>
+
+<p><button data-toggle="collapse" data-target="#who_python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
+<div id="who_python" class="collapse">
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="n">base</span> <span class="o">=</span> <span class="p">(</span><span class="s">'http://apps.who.int/gho/athena/data/GHO/{}'</span>
+        <span class="s">'.json?profile=simple&amp;filter=COUNTRY:*'</span><span class="p">)</span>
+
+<span class="n">ad_restrictions</span> <span class="o">=</span> <span class="s">'SA_0000001515'</span>
+
+<span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">code</span><span class="p">))</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">get_data_helper</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_data_helper</span><span class="p">(</span><span class="n">who_dictionary</span><span class="p">):</span>
+    <span class="s">'''Pads the dictionary so entries are same length'''</span>
+    <span class="n">rv</span> <span class="o">=</span> <span class="p">[]</span> 
+    <span class="n">fact_table</span> <span class="o">=</span> <span class="n">who_dictionary</span><span class="p">[</span><span class="s">'fact'</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">observation</span> <span class="ow">in</span> <span class="n">fact_table</span><span class="p">:</span>
+        <span class="n">new_row</span> <span class="o">=</span> <span class="n">observation</span><span class="p">[</span><span class="s">'dim'</span><span class="p">]</span>
+        <span class="n">new_row</span><span class="p">[</span><span class="s">'VALUE'</span><span class="p">]</span> <span class="o">=</span> <span class="n">observation</span><span class="p">[</span><span class="s">'Value'</span><span class="p">]</span>
+        <span class="n">rv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_row</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rv</span>
+
+<span class="k">def</span> <span class="nf">clean_who_data</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">df</span><span class="p">[</span><span class="s">'ad_type'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">ADVERTISINGTYPE</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> 
+                                     <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">' Ads'</span><span class="p">,</span> <span class="s">''</span><span class="p">))</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s">'GHO'</span><span class="p">,</span> <span class="s">'PUBLISHSTATE'</span>
+           <span class="p">,</span> <span class="s">'ADVERTISINGTYPE'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">''</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">ad_restrictions</span><span class="p">)</span>
+    <span class="n">clean_who_data</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Preview:'</span><span class="p">)</span> 
+    <span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">'WHO_ad_data.csv'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span></code></pre></figure>
+
+</div>
+
+<p><button data-toggle="collapse" data-target="#who_r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
+<div id="who_r" class="collapse">
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">readr</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># Flat file downloaded from:</span><span class="w">
+</span><span class="c1"># http://apps.who.int/gho/data/view.main.REGION2480A?lang=en</span><span class="w">
+
+</span><span class="n">data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'obesity.csv'</span><span class="p">)</span><span class="w">
+
+</span><span class="n">by.region</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">group_by</span><span class="p">(</span><span class="n">REGION</span><span class="p">,</span><span class="w"> </span><span class="n">YEAR</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">summarize</span><span class="p">(</span><span class="n">mean.Numeric</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">Numeric</span><span class="p">)</span><span class="o">/</span><span class="m">100</span><span class="p">)</span><span class="w">
+
+</span><span class="n">ggplot</span><span class="p">(</span><span class="n">by.region</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YEAR</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean.Numeric</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">REGION</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_point</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_line</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">ggtitle</span><span class="p">(</span><span class="s1">'Obesity Rates Over Time'</span><span class="p">,</span><span class="w"> </span><span class="n">subtitle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Grouped By Region'</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+</span><span class="n">ylab</span><span class="p">(</span><span class="s1">'Average Obesity Rate'</span><span class="p">)</span></code></pre></figure>
+
+</div>
+
 
   <br>
   <br>
@@ -160,7 +271,17 @@ The county level dataset has 8 variables/columns and 53,387 rows, which are desc
 
 <p>Documentation on the latest version of this dataset provides complete information on variables, data sources, dataset identifier, definitions, and classifications can be found at the API docs <a href="https://dev.socrata.com/foundry/data.cdc.gov/sgfp-ytm5">here</a></p>
 
-<p>All communication with the API is done through HTTPS, and errors are communicated through HTTP response codes. Available response types include JSON, XML, and CSV, which are selectable by the “extension” (.json, etc.) on the API endpoint or through content-negotiation with HTTP Accepts headers.</p>
+<p><button data-toggle="collapse" data-target="#TeenBirths-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
+<div id="TeenBirths-python" class="collapse">
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span></code></pre></figure>
+
+</div>
+
+<p><button data-toggle="collapse" data-target="#TeenBirths-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
+<div id="TeenBirths-r" class="collapse">
+
+</div>
 
   <br>
   <br>
@@ -415,14 +536,17 @@ The full documentation and data dictionary can be found at <a href="https://coll
 
 <p>Latest data may be preliminary or projected. Missing values indicate unreported values, discontinued series, or not yet released data. It is available in a bulk download from <a href="https://www.ers.usda.gov/data-products/feed-grains-database/feed-grains-yearbook-tables.aspx">here</a>.</p>
 
-<h3 id="example-in-python">Example in Python</h3>
+<p><button data-toggle="collapse" data-target="#feed-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
+<div id="feed-python" class="collapse">
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span></code></pre></figure>
 
-<h3 id="example-in-r">Example in R</h3>
+</div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+<p><button data-toggle="collapse" data-target="#feed-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
+<div id="feed-r" class="collapse">
 
+</div>
 
   <br>
   <br>
@@ -430,14 +554,17 @@ The full documentation and data dictionary can be found at <a href="https://coll
   <h2>Food Environment Atlas (USDA)</h2>
   <p>The current version of the Food Environment Atlas has over 275 variables, including new indicators on access and proximity to a grocery store for sub populations; an indicator on the SNAP Combined Application Project for recipients of Supplemental Security Income (at the State level); and indicators on farmers’ markets that report accepting credit cards or report selling baked and prepared food products. All of the data included in the Atlas are aggregated into an Excel spreadsheet for easy download. These data are from a variety of sources and cover varying years and geographic levels. The documentation for each version of the data provides complete information on definitions and data sources, and can be found <a href="https://www.ers.usda.gov/webdocs/DataFiles/80526/archived_documentation_August2015.pdf?v=0">here</a></p>
 
-<h3 id="example-in-python">Example in Python</h3>
+<p><button data-toggle="collapse" data-target="#food-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
+<div id="food-python" class="collapse">
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span></code></pre></figure>
 
-<h3 id="example-in-r">Example in R</h3>
+</div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+<p><button data-toggle="collapse" data-target="#food-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
+<div id="food-r" class="collapse">
 
+</div>
 
   <br>
   <br>
@@ -454,14 +581,20 @@ Data that is used for publicatoin must be cited. The IPUMS download portal yield
   <li><a href="https://uma.pop.umn.edu/usa/user/new?return_url=https%3A%2F%2Fusa.ipums.org%2Fusa-action%2Fextract_requests%2Fdownload">Must Create an account</a></li>
 </ul>
 
-<h3 id="example-in-python">Example in Python</h3>
+<p><button data-toggle="collapse" data-target="#ipums-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
+<div id="ipums-python" class="collapse">
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
 
-<h3 id="example-in-r">Example in R</h3>
+</div>
+
+<p><button data-toggle="collapse" data-target="#ipums-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
+<div id="ipums-r" class="collapse">
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
 
+</div>
 
   <br>
   <br>
@@ -470,14 +603,20 @@ Data that is used for publicatoin must be cited. The IPUMS download portal yield
   <p>The BLS Public Data API gives the public access to economic data from all BLS programs, such as the Consumer Price Index. The API is currently available in two versions, the most recent requiring registration and allows users to access more data more frequently. Both versions return data from published historical time series data in json or xlsx format.
 The data sources available to this API are extensive - covering employment, inflation, spending, pay and more. Knowledge of data series’ codes and formats is necessary for successful use of the API, and ID formats can be found <a href="https://www.bls.gov/help/hlpforma.htm">here</a>. Additionally, the full documentation can be found <a href="https://www.bls.gov/developers/home.htm">here</a></p>
 
-<h3 id="example-in-python">Example in Python</h3>
+<p><button data-toggle="collapse" data-target="#labor-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
+<div id="labor-python" class="collapse">
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
 
-<h3 id="example-in-r">Example in R</h3>
+</div>
+
+<p><button data-toggle="collapse" data-target="#labor-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
+<div id="labor-r" class="collapse">
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
 
+</div>
 
   <br>
   <br>
@@ -487,9 +626,9 @@ The data sources available to this API are extensive - covering employment, infl
 
 <p><code class="highlighter-rouge">http://quickstats.nass.usda.gov/api/api_GET/?key=apikey&amp;commodity_desc=CORN&amp;year__GE=2010&amp;state_alpha=VA</code></p>
 
-<p>Full Documentation, a Data Dictionary, and API Registration can be found <a href="https://quickstats.nass.usda.gov/api">here</a>.</p>
-
-<h3 id="example-in-python">Example in Python</h3>
+<p>Full Documentation, a Data Dictionary, and API Registration can be found <a href="https://quickstats.nass.usda.gov/api">here</a>.
+<button data-toggle="collapse" data-target="#nass-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
+<div id="nass-python" class="collapse">
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
@@ -500,10 +639,14 @@ The data sources available to this API are extensive - covering employment, infl
 
 <span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
 
-<h3 id="example-in-r">Example in R</h3>
+</div>
+
+<p><button data-toggle="collapse" data-target="#nass-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
+<div id="nass-r" class="collapse">
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
 
+</div>
 
   <br>
   <br>
@@ -521,124 +664,63 @@ The data sources available to this API are extensive - covering employment, infl
 
 <p>The download functionality for these data sets provides access to files for SPSS, SAS, Stata, R, or simply a csv. A tagset, codebook, description file, and log file are also included with a download.</p>
 
-<p>The R, SAS, and SPSS files contain code needed to load the data set, as well as short explanations for missing values and level names.</p>
+<p>The R, SAS, and SPSS files contain code needed to load the data set, as well as short explanations for missing values and level names.
+<button data-toggle="collapse" data-target="#nls-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
+<div id="nls-python" class="collapse">
 
-<h3 id="example-in-python">Example in Python</h3>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Hello, World!"</span><span class="p">)</span></code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+</div>
 
-<h3 id="example-in-r">Example in R</h3>
+<p><button data-toggle="collapse" data-target="#nls-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
+<div id="nls-r" class="collapse">
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World!"</span><span class="p">)</span></code></pre></figure>
 
+</div>
 
   <br>
   <br>
 
   <h2>Nationwide Readmissions Database (NRD)</h2>
   <p>The Nationwide Readmissions Database is designed to support various types of analyses of national readmission rates. The NRD includes discharges for patients with and without repeat hospital visits in a year and those who have died in the hospital. The criteria to determine the relationship between hospital admissions is left to the analyst using the NRD. 
-This database was compiled by the Agency for Healthcare Research and Quality (AHRQ), who provides a <a href="https://www.hcup-us.ahrq.gov/db/nation/nrd/nrddde.jsp">Data Dictionary</a> and <a href="https://www.hcup-us.ahrq.gov/db/nation/nrd/nrddbdocumentation.jsp">Full Documentation</a>.</p>
+This database was compiled by the Agency for Healthcare Research and Quality (AHRQ), who provides a <a href="https://www.hcup-us.ahrq.gov/db/nation/nrd/nrddde.jsp">Data Dictionary</a> and <a href="https://www.hcup-us.ahrq.gov/db/nation/nrd/nrddbdocumentation.jsp">Full Documentation</a>.
+<button data-toggle="collapse" data-target="#nrd-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
+<div id="nrd-python" class="collapse">
 
-<h3 id="example-in-python">Example in Python</h3>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+</div>
 
-<h3 id="example-in-r">Example in R</h3>
+<p><button data-toggle="collapse" data-target="#nrd-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
+<div id="nrd-r" class="collapse">
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
 
+</div>
 
   <br>
   <br>
 
   <h2>TSA API</h2>
   <p>The MyTSA Web Service API supports several features, some of which include: Security Checkpoint Wait Times, TSA Pre-Check locations, and Sunrise/Sunset times for all locations.
-Data can be queried by state and/or airport. The TSA provides XML files of data in addition to the API with <a href="https://www.dhs.gov/mytsa-api-documentation">documentation</a>.</p>
+Data can be queried by state and/or airport. The TSA provides XML files of data in addition to the API with <a href="https://www.dhs.gov/mytsa-api-documentation">documentation</a>.
+<button data-toggle="collapse" data-target="#tsa-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
+<div id="tsa-python" class="collapse">
 
-<h3 id="example-in-python">Example in Python</h3>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+</div>
 
-<h3 id="example-in-r">Example in R</h3>
+<p><button data-toggle="collapse" data-target="#tsa-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
+<div id="tsa-r" class="collapse">
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
 
-
-  <br>
-  <br>
-
-  <h2>Global Health Observatory Data Repository</h2>
-  <p>The Global Health Observatory data repository is the World Health Organization’s gateway to health-related statistics for its 194 Member States. It provides access to over 1000 indicators on priority health topics including mortality and burden of diseases, the Millennium Development Goals (child nutrition, child health, maternal and reproductive health, immunization, HIV/AIDS, tuberculosis, malaria, neglected diseases, water and sanitation), non communicable diseases and risk factors, epidemic-prone diseases, health systems, environmental health, violence and injuries, equity among others.</p>
-
-<p>Many of these datasets represent the best estimates of WHO using methodologies for specific indicators that aim for comparability across countries and time. Please check the Indicator and Measurement Registry for indicator specific information. Additional metadata and definitions can be found <a href="http://apps.who.int/gho/data/node.metadata">here</a>. The World Health Organization also provides <a href="http://apps.who.int/gho/data/node.resources.examples?lang=en">examples of API usage</a>.</p>
-
-<p><button data-toggle="collapse" data-target="#who_python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
-<div id="who_python" class="collapse">
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
-
-<span class="n">base</span> <span class="o">=</span> <span class="p">(</span><span class="s">'http://apps.who.int/gho/athena/data/GHO/{}'</span>
-        <span class="s">'.json?profile=simple&amp;filter=COUNTRY:*'</span><span class="p">)</span>
-
-<span class="n">ad_restrictions</span> <span class="o">=</span> <span class="s">'SA_0000001515'</span>
-
-<span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">code</span><span class="p">))</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">get_data_helper</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
-    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">get_data_helper</span><span class="p">(</span><span class="n">who_dictionary</span><span class="p">):</span>
-    <span class="s">'''Pads the dictionary so entries are same length'''</span>
-    <span class="n">rv</span> <span class="o">=</span> <span class="p">[]</span> 
-    <span class="n">fact_table</span> <span class="o">=</span> <span class="n">who_dictionary</span><span class="p">[</span><span class="s">'fact'</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">observation</span> <span class="ow">in</span> <span class="n">fact_table</span><span class="p">:</span>
-        <span class="n">new_row</span> <span class="o">=</span> <span class="n">observation</span><span class="p">[</span><span class="s">'dim'</span><span class="p">]</span>
-        <span class="n">new_row</span><span class="p">[</span><span class="s">'VALUE'</span><span class="p">]</span> <span class="o">=</span> <span class="n">observation</span><span class="p">[</span><span class="s">'Value'</span><span class="p">]</span>
-        <span class="n">rv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_row</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">rv</span>
-
-<span class="k">def</span> <span class="nf">clean_who_data</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
-    <span class="n">df</span><span class="p">[</span><span class="s">'ad_type'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">ADVERTISINGTYPE</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> 
-                                     <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">' Ads'</span><span class="p">,</span> <span class="s">''</span><span class="p">))</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s">'GHO'</span><span class="p">,</span> <span class="s">'PUBLISHSTATE'</span>
-           <span class="p">,</span> <span class="s">'ADVERTISINGTYPE'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">''</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">ad_restrictions</span><span class="p">)</span>
-    <span class="n">clean_who_data</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'Preview:'</span><span class="p">)</span> 
-    <span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">'WHO_ad_data.csv'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span></code></pre></figure>
-
 </div>
-
-<p><button data-toggle="collapse" data-target="#who_r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
-<div id="who_r" class="collapse">
-
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">readr</span><span class="p">)</span><span class="w">
-</span><span class="n">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span><span class="w">
-</span><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span><span class="w">
-
-</span><span class="c1"># Flat file downloaded from:</span><span class="w">
-</span><span class="c1"># http://apps.who.int/gho/data/view.main.REGION2480A?lang=en</span><span class="w">
-
-</span><span class="n">data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'obesity.csv'</span><span class="p">)</span><span class="w">
-
-</span><span class="n">by.region</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
-  </span><span class="n">group_by</span><span class="p">(</span><span class="n">REGION</span><span class="p">,</span><span class="w"> </span><span class="n">YEAR</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
-  </span><span class="n">summarize</span><span class="p">(</span><span class="n">mean.Numeric</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">Numeric</span><span class="p">)</span><span class="o">/</span><span class="m">100</span><span class="p">)</span><span class="w">
-
-</span><span class="n">ggplot</span><span class="p">(</span><span class="n">by.region</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YEAR</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean.Numeric</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">REGION</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
-  </span><span class="n">geom_point</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
-  </span><span class="n">geom_line</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
-  </span><span class="n">ggtitle</span><span class="p">(</span><span class="s1">'Obesity Rates Over Time'</span><span class="p">,</span><span class="w"> </span><span class="n">subtitle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Grouped By Region'</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
-</span><span class="n">ylab</span><span class="p">(</span><span class="s1">'Average Obesity Rate'</span><span class="p">)</span></code></pre></figure>
-
-</div>
-
 
   <br>
   <br>

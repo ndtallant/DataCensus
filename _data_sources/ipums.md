@@ -11,12 +11,17 @@ Data that is used for publicatoin must be cited. The IPUMS download portal yield
 - [FAQ](https://usa.ipums.org/usa-action/faq)
 - [Must Create an account](https://uma.pop.umn.edu/usa/user/new?return_url=https%3A%2F%2Fusa.ipums.org%2Fusa-action%2Fextract_requests%2Fdownload)
 
-### Example in Python
+<button data-toggle="collapse" data-target="#ipums-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button>
+<div id="ipums-python" class="collapse">
 {% highlight python %}
+import pandas as pd
 print("Hello, World")
 {% endhighlight %}
+</div>
 
-### Example in R
+<button data-toggle="collapse" data-target="#ipums-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button>
+<div id="ipums-r" class="collapse">
 {% highlight r %}
 print("Hello, World")
 {% endhighlight %}
+</div>

@@ -8,4 +8,18 @@ All of the data are aggregated into a CSV or CSV for Excel spreadsheet for easy 
 
 Documentation on the latest version of this dataset provides complete information on variables, data sources, dataset identifier, definitions, and classifications can be found at the API docs [here](https://dev.socrata.com/foundry/data.cdc.gov/sgfp-ytm5)
 
-All communication with the API is done through HTTPS, and errors are communicated through HTTP response codes. Available response types include JSON, XML, and CSV, which are selectable by the "extension" (.json, etc.) on the API endpoint or through content-negotiation with HTTP Accepts headers.
+
+<button data-toggle="collapse" data-target="#TeenBirths-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button>
+<div id="TeenBirths-python" class="collapse">
+{% highlight python %}
+import pandas as pd
+
+{% endhighlight %}
+</div>
+
+<button data-toggle="collapse" data-target="#TeenBirths-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button>
+<div id="TeenBirths-r" class="collapse">
+{% highlight r %}
+
+{% endhighlight %}
+</div>

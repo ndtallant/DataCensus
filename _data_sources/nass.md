@@ -8,8 +8,8 @@ This API provides access to data from the Census of Agriculture as well as natio
 `http://quickstats.nass.usda.gov/api/api_GET/?key=apikey&commodity_desc=CORN&year__GE=2010&state_alpha=VA` 
 
 Full Documentation, a Data Dictionary, and API Registration can be found [here](https://quickstats.nass.usda.gov/api).
-
-### Example in Python
+<button data-toggle="collapse" data-target="#nass-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button>
+<div id="nass-python" class="collapse">
 {% highlight python %}
 import requests
 import numpy as np
@@ -20,8 +20,11 @@ url = 'http://quickstats.nass.usda.gov/api/api_GET/?key=apikey&\
 
 print("Hello, World")
 {% endhighlight %}
+</div>
 
-### Example in R
+<button data-toggle="collapse" data-target="#nass-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button>
+<div id="nass-r" class="collapse">
 {% highlight r %}
 print("Hello, World")
 {% endhighlight %}
+</div>

@@ -13,13 +13,17 @@ Information on the labor market activities and other significant life events of 
 The download functionality for these data sets provides access to files for SPSS, SAS, Stata, R, or simply a csv. A tagset, codebook, description file, and log file are also included with a download.
 
 The R, SAS, and SPSS files contain code needed to load the data set, as well as short explanations for missing values and level names.
-
-### Example in Python
+<button data-toggle="collapse" data-target="#nls-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button>
+<div id="nls-python" class="collapse">
 {% highlight python %}
-print("Hello, World")
+import pandas as pd
+print("Hello, World!")
 {% endhighlight %}
+</div>
 
-### Example in R
+<button data-toggle="collapse" data-target="#nls-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button>
+<div id="nls-r" class="collapse">
 {% highlight r %}
-print("Hello, World")
+print("Hello, World!")
 {% endhighlight %}
+</div>
