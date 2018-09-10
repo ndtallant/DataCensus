@@ -552,17 +552,35 @@ The full documentation and data dictionary can be found at <a href="https://coll
   <br>
 
   <h2>Food Environment Atlas (USDA)</h2>
-  <p>The current version of the Food Environment Atlas has over 275 variables, including new indicators on access and proximity to a grocery store for sub populations; an indicator on the SNAP Combined Application Project for recipients of Supplemental Security Income (at the State level); and indicators on farmers’ markets that report accepting credit cards or report selling baked and prepared food products. All of the data included in the Atlas are aggregated into an Excel spreadsheet for easy download. These data are from a variety of sources and cover varying years and geographic levels. The documentation for each version of the data provides complete information on definitions and data sources, and can be found <a href="https://www.ers.usda.gov/webdocs/DataFiles/80526/archived_documentation_August2015.pdf?v=0">here</a></p>
+  <p>The current version of the Food Environment Atlas has over 275 variables, including new indicators on access and proximity to a grocery store for sub populations; an indicator on the SNAP Combined Application Project for recipients of Supplemental Security Income (at the State level); and indicators on farmers’ markets that report accepting credit cards or report selling baked and prepared food products. 
+All of the data included in the Atlas are aggregated into an Excel spreadsheet for <a href="https://www.ers.usda.gov/data-products/food-environment-atlas/data-access-and-documentation-downloads/">easy download</a>. 
+These data are from a variety of sources and cover varying years and geographic levels. The <a href="https://www.ers.usda.gov/webdocs/DataFiles/80526/archived_documentation_August2015.pdf?v=0">documentation</a> for each version of the data provides complete information on definitions and data sources.</p>
 
 <p><button data-toggle="collapse" data-target="#food-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
 <div id="food-python" class="collapse">
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="c"># After downloading the excel file.</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s">'August2015.xls'</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s">'PRICES_TAXES'</span><span class="p">)</span>
+
+<span class="c"># See the 10 counties with the highest soda price.</span>
+<span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s">'SODA_PRICE10'</span>
+         <span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)[[</span><span class="s">'State'</span><span class="p">,</span> <span class="s">'County'</span><span class="p">,</span> <span class="s">'SODA_PRICE10'</span><span class="p">]]</span></code></pre></figure>
 
 </div>
 
 <p><button data-toggle="collapse" data-target="#food-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
 <div id="food-r" class="collapse">
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">xlsx</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># After downloading the excel file.</span><span class="w">
+</span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read.xlsx</span><span class="p">(</span><span class="s2">"August2015.xls"</span><span class="p">,</span><span class="w"> </span><span class="n">sheetName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"PRICES_TAXES"</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># See the 10 counties with the highest soda price.</span><span class="w">
+</span><span class="n">head</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">order</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">SODA_PRICE10</span><span class="p">,</span><span class="w"> </span><span class="n">decreasing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w">
+  </span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"State"</span><span class="p">,</span><span class="w"> </span><span class="s2">"County"</span><span class="p">,</span><span class="w"> </span><span class="s2">"SODA_PRICE10"</span><span class="p">)],</span><span class="w"> </span><span class="m">10</span><span class="p">)</span></code></pre></figure>
 
 </div>
 
