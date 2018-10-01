@@ -11,6 +11,13 @@ Latest data may be preliminary or projected. Missing values indicate unreported 
 {% highlight python %}
 import pandas as pd
 
+df = pd.read_excel('Feed Grains Yearbook Tables-Recent.xls'
+    , sheet_name='FGYearbookTable01'
+    , skiprows=[0, 1, 38, 39, 40, 41]
+    , names=['commodity', 'year', 'planted', 'harvested', 'production', 'yield', 'price', 'loan_rate']
+    , header=None)
+df.dropna(how='all', inplace=True)
+df.commodity.fillna(method='ffill', inplace=True)
 {% endhighlight %}
 </div>
 
