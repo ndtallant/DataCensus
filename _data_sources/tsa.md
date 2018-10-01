@@ -8,14 +8,18 @@ Data can be queried by state and/or airport. The TSA provides XML files of data 
 <button data-toggle="collapse" data-target="#tsa-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button>
 <div id="tsa-python" class="collapse">
 {% highlight python %}
-import pandas as pd
-print("Hello, World")
+import requests
+# Returns JSON file of today’s sunset time for DCA airport
+response = requests.get('http://apps.tsa.dhs.gov/MyTSAWebService/GetEventInfo.ashx?eventtype=sunset&airportcode=DCA&output=json')
+data = response.json()
 {% endhighlight %}
 </div>
 
 <button data-toggle="collapse" data-target="#tsa-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button>
 <div id="tsa-r" class="collapse">
 {% highlight r %}
-print("Hello, World")
+library(jsonlite)
+# Returns JSON file of today’s sunset time for DCA airport
+data <- fromJSON('http://apps.tsa.dhs.gov/MyTSAWebService/GetEventInfo.ashx?eventtype=sunset&airportcode=DCA&output=json')
 {% endhighlight %}
 </div>
