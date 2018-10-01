@@ -15,6 +15,7 @@ import requests
 import numpy as np
 import pandas as pd
 
+# Observations for corn in Virginia in 2010
 url = 'http://quickstats.nass.usda.gov/api/api_GET/?key=apikey&\
        commodity_desc=CORN&year__GE=2010&state_alpha=VA'
 
