@@ -13,13 +13,15 @@ Documentation on the latest version of this dataset provides complete informatio
 <div id="TeenBirths-python" class="collapse">
 {% highlight python %}
 import pandas as pd
-
+# Observations where the state teen birth rate is 37.5 %
+df = pd.read_json('https://data.cdc.gov/resource/sgfp-ytm5.json?$where=state_rate=37.5')
 {% endhighlight %}
 </div>
 
 <button data-toggle="collapse" data-target="#TeenBirths-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button>
 <div id="TeenBirths-r" class="collapse">
 {% highlight r %}
-
+library(RSocrata)
+df <- read.socrata('https://data.cdc.gov/resource/sgfp-ytm5.json?$where=state_rate=37.5')
 {% endhighlight %}
 </div>
