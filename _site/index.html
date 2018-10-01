@@ -167,21 +167,23 @@ The county level dataset has 8 variables/columns and 53,387 rows, which are desc
   <br>
 
   <h2>US Leading Causes of Death (NCHS)</h2>
-  <p>This <a href="https://data.cdc.gov/NCHS/NCHS-Leading-Causes-of-Death-United-States/bi63-dtpu">dataset</a> presents the age-adjusted death rates for the 10 leading causes of death in the United States beginning in 1999. This particular dataset has 6 variables/columns and 10,296 rows. Each column is represented by a single field in its SODA API. Using filters and SoQL queries, researcher can search for records, limit results, and adjust the way the data is output</p>
-
-<p>All of the data are aggregated into a CSV or CSV for Excel spreadsheet for easy download. Additional formats for download also include RDF, RSS, TSV for Excel, and XML.</p>
-
-<p>Documentation on the latest version of this dataset provides complete information on variables, data sources, dataset identifier, definitions, and classifications can be found at the API docs <a href="https://dev.socrata.com/foundry/data.cdc.gov/u4d7-xz8k">here</a></p>
+  <p>This <a href="https://data.cdc.gov/NCHS/NCHS-Leading-Causes-of-Death-United-States/bi63-dtpu">dataset</a> presents the age-adjusted death rates for the 10 leading causes of death in the United States beginning in 1999. This particular dataset has 10,296 observations describing the year, state, cause of death, number of deaths, and age adjusted death rate. Documentation on the latest version of this dataset provides complete information on variables, data sources, dataset identifier, definitions, and classifications can be found at the API docs <a href="https://dev.socrata.com/foundry/data.cdc.gov/u4d7-xz8k">here</a></p>
 
 <p><button data-toggle="collapse" data-target="#LeadingCausesOfDeath-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
 <div id="LeadingCausesOfDeath-python" class="collapse">
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="c"># All records for the state of Alabama</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">read_json</span><span class="p">(</span><span class="s">'https://data.cdc.gov/resource/u4d7-xz8k.json?state=Alabama'</span><span class="p">)</span></code></pre></figure>
 
 </div>
 
 <p><button data-toggle="collapse" data-target="#LeadingCausesOfDeath-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
 <div id="LeadingCausesOfDeath-r" class="collapse">
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">RSocrata</span><span class="p">)</span><span class="w">
+</span><span class="c1"># All records for the state of Alabama</span><span class="w">
+</span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read.socrata</span><span class="p">(</span><span class="s2">"https://data.cdc.gov/resource/u4d7-xz8k.json?state=Alabama"</span><span class="p">)</span></code></pre></figure>
 
 </div>
 
@@ -274,12 +276,17 @@ The county level dataset has 8 variables/columns and 53,387 rows, which are desc
 <p><button data-toggle="collapse" data-target="#TeenBirths-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
 <div id="TeenBirths-python" class="collapse">
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="c"># Observations where the state teen birth rate is 37.5 %</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s">'https://data.cdc.gov/resource/sgfp-ytm5.json?$where=state_rate=37.5'</span><span class="p">)</span></code></pre></figure>
 
 </div>
 
 <p><button data-toggle="collapse" data-target="#TeenBirths-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
 <div id="TeenBirths-r" class="collapse">
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">RSocrata</span><span class="p">)</span><span class="w">
+</span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read.socrata</span><span class="p">(</span><span class="s1">'https://data.cdc.gov/resource/sgfp-ytm5.json?$where=state_rate=37.5'</span><span class="p">)</span></code></pre></figure>
 
 </div>
 
@@ -480,39 +487,15 @@ The full documentation and data dictionary can be found at <a href="https://coll
 <div id="fbi_python" class="collapse">
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
-<span class="n">api_key</span> <span class="o">=</span> <span class="n">your_key_here</span> 
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
 <span class="n">base</span> <span class="o">=</span> <span class="s">'https://api.usa.gov/crime/fbi/sapi/'</span>
-<span class="n">offenses</span> <span class="o">=</span> <span class="p">[</span><span class="s">'burglary'</span><span class="p">,</span> <span class="s">'homicide'</span><span class="p">,</span> <span class="s">'rape'</span><span class="p">]</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s">'api/summarized/agencies/WY0200100/homicide?api_key='</span>
+<span class="n">key</span> <span class="o">=</span> <span class="s">'your_api_key'</span> 
 
-<span class="n">ori</span> <span class="o">=</span> <span class="s">'api/agencies?api_key='</span>
-<span class="n">crime</span> <span class="o">=</span> <span class="s">'api/summarized/agencies/{}/{}?api_key='</span>
-
-<span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">query</span><span class="p">):</span>
-    <span class="s">'''Returns a dictionary of data from an API request.'''</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">base</span> <span class="o">+</span> <span class="n">query</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-
-<span class="k">def</span> <span class="nf">get_county_agencies</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">county</span><span class="p">):</span>
-    <span class="s">'''
-    Given a state and county, reutrns a list of
-    dictionaries - keys being Originating Agency Identifiers
-    (ORI) - for any county level agencies.
-    '''</span>
-    <span class="n">ori_list</span> <span class="o">=</span> <span class="p">[]</span> 
-    <span class="k">for</span> <span class="n">agency</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">state</span><span class="p">]:</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">state</span><span class="p">][</span><span class="n">agency</span><span class="p">][</span><span class="s">'county_name'</span><span class="p">]</span> <span class="o">==</span> <span class="n">county</span><span class="p">:</span>
-            <span class="n">ori_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">state</span><span class="p">][</span><span class="n">agency</span><span class="p">])</span>
-        <span class="k">except</span><span class="p">:</span>
-            <span class="k">continue</span>
-    <span class="k">return</span> <span class="n">ori_list</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">ori_query</span><span class="p">,</span> <span class="n">api_key</span><span class="p">)</span>
-<span class="n">wood_county_agencies</span> <span class="o">=</span> <span class="n">get_county_agencies</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s">'TX'</span><span class="p">,</span> <span class="s">'WOOD'</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">get_agency_crimes</span><span class="p">(</span><span class="n">ori</span><span class="p">,</span> <span class="n">offense</span><span class="p">):</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">crime</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ori</span><span class="p">,</span> <span class="n">offense</span><span class="p">))</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
-    <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="s">'results'</span><span class="p">]</span></code></pre></figure>
+<span class="c"># Homicides Recorded by Jackson Police Department</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">base</span> <span class="o">+</span> <span class="n">query</span> <span class="o">+</span> <span class="n">key</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'results'</span><span class="p">])</span></code></pre></figure>
  
 </div>
 
@@ -520,11 +503,14 @@ The full documentation and data dictionary can be found at <a href="https://coll
 <div id="fbi_r" class="collapse">
   
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">httr</span><span class="p">)</span><span class="w">
-</span><span class="n">url</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">paste</span><span class="p">(</span><span class="w">
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">jsonlite</span><span class="p">)</span><span class="w">
+</span><span class="n">url</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">paste</span><span class="p">(</span><span class="s2">"https://api.usa.gov/crime/fbi/sapi/"</span><span class="w">
+            </span><span class="p">,</span><span class="w"> </span><span class="s2">"api/summarized/agencies/WY0200100/homicide?api_key="</span><span class="w">
+            </span><span class="p">,</span><span class="w"> </span><span class="s2">"your_api_key"</span><span class="w"> 
             </span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">""</span><span class="p">)</span><span class="w">
 
-</span><span class="n">response</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">GET</span><span class="p">(</span><span class="n">url</span><span class="p">)</span></code></pre></figure>
+</span><span class="n">data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">fromJSON</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="w">
+</span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data</span><span class="p">[[</span><span class="s2">"results"</span><span class="p">]]</span></code></pre></figure>
 
 </div>
 
@@ -728,15 +714,19 @@ Data can be queried by state and/or airport. The TSA provides XML files of data 
 <button data-toggle="collapse" data-target="#tsa-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
 <div id="tsa-python" class="collapse">
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="c"># Returns JSON file of today’s sunset time for DCA airport</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'http://apps.tsa.dhs.gov/MyTSAWebService/GetEventInfo.ashx?eventtype=sunset&amp;airportcode=DCA&amp;output=json'</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span></code></pre></figure>
 
 </div>
 
 <p><button data-toggle="collapse" data-target="#tsa-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
 <div id="tsa-r" class="collapse">
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">jsonlite</span><span class="p">)</span><span class="w">
+</span><span class="c1"># Returns JSON file of today’s sunset time for DCA airport</span><span class="w">
+</span><span class="n">data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">fromJSON</span><span class="p">(</span><span class="s1">'http://apps.tsa.dhs.gov/MyTSAWebService/GetEventInfo.ashx?eventtype=sunset&amp;airportcode=DCA&amp;output=json'</span><span class="p">)</span></code></pre></figure>
 
 </div>
 
