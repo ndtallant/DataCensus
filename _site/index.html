@@ -145,21 +145,30 @@ The county level dataset has 8 variables/columns and 53,387 rows, which are desc
   <br>
 
   <h2>US Injury Mortality (NCHS)</h2>
-  <p>This <a href="https://data.cdc.gov/NCHS/NCHS-Injury-Mortality-United-States/nt65-c7a7">dataset</a> describes injury mortality in the United States beginning in 1999. Two concepts are included in the circumstances of an injury death: intent of injury and mechanism of injury. This particular dataset has 17 variables/columns and 98,280 rows. Each column is represented by a single field in its SODA API. Using filters and SoQL queries, researcher can search for records, limit results, and adjust the way the data is output</p>
+  <p>This <a href="https://data.cdc.gov/NCHS/NCHS-Injury-Mortality-United-States/nt65-c7a7">dataset</a> describes injury mortality in the United States beginning in 1999. Two concepts are included in the circumstances of an injury death: intent of injury and mechanism of injury. This particular dataset has 17 variables/columns and 98,280 rows. Using filters and SoQL queries, researcher can search for records, limit results, and adjust the way the data is output</p>
 
-<p>All of the data are aggregated into a CSV or CSV for Excel spreadsheet for easy download. Additional formats for download also include RDF, RSS, TSV for Excel, and XML.</p>
+<p>All of the data are aggregated into a CSV or CSV for Excel spreadsheet for easy download.</p>
 
 <p>Documentation on the latest version of this dataset provides complete information on variables, data sources, dataset identifier, definitions, and classifications can be found at the API docs <a href="https://dev.socrata.com/foundry/data.cdc.gov/6j4j-ispt">here</a></p>
 
 <p><button data-toggle="collapse" data-target="#InjuryMortality-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
 <div id="InjuryMortality-python" class="collapse">
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="c"># Get all injury mechanisms for mortality in the United States </span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s">"https://data.cdc.gov/resource/6j4j-ispt.json"</span><span class="p">)</span></code></pre></figure>
 
 </div>
 
 <p><button data-toggle="collapse" data-target="#InjuryMortality-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
 <div id="InjuryMortality-r" class="collapse">
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">RSocrata</span><span class="p">)</span><span class="w">
+
+
+</span><span class="c1"># Get all injury mechanisms for mortality in the United States </span><span class="w">
+</span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read.socrata</span><span class="p">(</span><span class="s2">"https://data.cdc.gov/resource/6j4j-ispt.json"</span><span class="p">)</span></code></pre></figure>
 
 </div>
 
@@ -267,9 +276,7 @@ The county level dataset has 8 variables/columns and 53,387 rows, which are desc
   <br>
 
   <h2>US and State Trends on Teen Births (NCHS)</h2>
-  <p>This <a href="https://data.cdc.gov/NCHS/NCHS-U-S-and-State-Trends-on-Teen-Births/y268-sna3">dataset</a> assembles all final birth data for females aged 15–19, 15–17, and 18–19 for the United States and each of the 50 states. This particular dataset has 8 variables/columns and 4,212 rows. This particular dataset has 6 variables/columns and 10,296 rows. Each column is represented by a single field in its SODA API. Using filters and SoQL queries, researcher can search for records, limit results, and adjust the way the data is output</p>
-
-<p>All of the data are aggregated into a CSV or CSV for Excel spreadsheet for easy download. Additional formats for download also include RDF, RSS, TSV for Excel, and XML.</p>
+  <p>This <a href="https://data.cdc.gov/NCHS/NCHS-U-S-and-State-Trends-on-Teen-Births/y268-sna3">dataset</a> assembles all final birth data for females aged 15–19, 15–17, and 18–19 for the United States and each of the 50 states. This particular dataset notes the year, state, age of mother, and relevant birthrates for 4,212 observations.</p>
 
 <p>Documentation on the latest version of this dataset provides complete information on variables, data sources, dataset identifier, definitions, and classifications can be found at the API docs <a href="https://dev.socrata.com/foundry/data.cdc.gov/sgfp-ytm5">here</a></p>
 
@@ -525,7 +532,15 @@ The full documentation and data dictionary can be found at <a href="https://coll
 <p><button data-toggle="collapse" data-target="#feed-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
 <div id="feed-python" class="collapse">
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s">'Feed Grains Yearbook Tables-Recent.xls'</span>
+    <span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s">'FGYearbookTable01'</span>
+    <span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">]</span>
+    <span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s">'commodity'</span><span class="p">,</span> <span class="s">'year'</span><span class="p">,</span> <span class="s">'planted'</span><span class="p">,</span> <span class="s">'harvested'</span><span class="p">,</span> <span class="s">'production'</span><span class="p">,</span> <span class="s">'yield'</span><span class="p">,</span> <span class="s">'price'</span><span class="p">,</span> <span class="s">'loan_rate'</span><span class="p">]</span>
+    <span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s">'all'</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">commodity</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s">'ffill'</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span></code></pre></figure>
 
 </div>
 
@@ -638,6 +653,7 @@ The data sources available to this API are extensive - covering employment, infl
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
 
+<span class="c"># Observations for corn in Virginia in 2010</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s">'http://quickstats.nass.usda.gov/api/api_GET/?key=apikey&amp;</span><span class="se">\
 </span><span class="s">       commodity_desc=CORN&amp;year__GE=2010&amp;state_alpha=VA'</span>
 
