@@ -15,44 +15,42 @@ The major purpose of ATUS is to develop nationally representative estimates of h
 
 <button data-toggle="collapse" data-target="#atus_python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button>
 <div id="atus_python" class="collapse">
+{% highlight python %}
+import pandas as pd
+    
+mapping = {1: 'New England'
+         , 2: 'Middle Atlantic'
+         , 3: 'East North Central'
+         , 4: 'West North Central'
+         , 5: 'South Atlantic'
+         , 6: 'East South Central'
+         , 7: 'West South Central'
+         , 8: 'Mountain'
+         , 9: 'Pacific'}
 
-    {% highlight python %}
-    import pandas as pd
+df = pd.read_table('atuscps_2017.dat', delimiter=',')
+df['division'] = df['GEDIV'].map(mapping)
 
-    mapping = {1: 'New England'
-             , 2: 'Middle Atlantic'
-             , 3: 'East North Central'
-             , 4: 'West North Central'
-             , 5: 'South Atlantic'
-             , 6: 'East South Central'
-             , 7: 'West South Central'
-             , 8: 'Mountain'
-             , 9: 'Pacific'}
-
-    df = pd.read_table('atuscps_2017.dat', delimiter=',')
-    df['division'] = df['GEDIV'].map(mapping)
-
-    # See number of housing units by geographic division.
-    print(pd.crosstab(df.division, df.HEHOUSUT))
-    {% endhighlight %}
+# See number of housing units by geographic division.
+print(pd.crosstab(df.division, df.HEHOUSUT))
+{% endhighlight %}
 </div>    
 <button data-toggle="collapse" data-target="#atus_r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button>
 <div id="atus_r" class="collapse">
-    
-    {% highlight r %}
-    df <- read.csv("atuscps_2017.dat")
-    df$GEDIV <- factor(df$GEDIV)
-    levels(df$GEDIV) <- c("New England"
-                         ,  "Middle Atlantic"
-                         ,  "East North Central"
-                         ,  "West North Central"
-                         ,  "South Atlantic"
-                         ,  "East South Central"
-                         ,  "West South Central"
-                         ,  "Mountain"
-                         ,  "Pacific")
+{% highlight r %}
+df <- read.csv("atuscps_2017.dat")
+df$GEDIV <- factor(df$GEDIV)
+levels(df$GEDIV) <- c("New England"
+                   ,  "Middle Atlantic"
+                   ,  "East North Central"
+                   ,  "West North Central"
+                   ,  "South Atlantic"
+                   ,  "East South Central"
+                   ,  "West South Central"
+                   ,  "Mountain"
+                   ,  "Pacific")
 
-    # See number of housing units by geographic division.
-    table(df$GEDIV, df$HEHOUSUT)
-    {% endhighlight %}
+# See number of housing units by geographic division.
+table(df$GEDIV, df$HEHOUSUT)
+{% endhighlight %}
 </div>

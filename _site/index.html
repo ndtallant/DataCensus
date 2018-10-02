@@ -83,6 +83,55 @@ The <a href="https://data.cdc.gov/NCHS/NCHS-Births-and-General-Fertility-Rates-U
   <br>
   <br>
 
+  <h2>Consumer Price Index (CPI)</h2>
+  <p>The Consumer Price Index (CPI) is a measure of the average change over time in the prices paid by urban consumers for a market basket of consumer goods and services. Indexes are available for the U.S. and various geographic areas. Average price data for select utility, automotive fuel, and food items are also available. All <a href="https://www.bls.gov/cpi/data.htm">data</a> is available in flat files and through the Bureau of Labor Statistics <a href="https://www.bls.gov/developers/">API</a>.</p>
+
+<p>This large data set is segmented into four groups:</p>
+<ul>
+  <li>All Urban Consumers (Current Series)</li>
+  <li>Urban Wage Earners and Clerical Workers (Current Series)</li>
+  <li>All Urban Consumers (Chained CPI)</li>
+  <li>Average Price Data</li>
+</ul>
+
+<p><button data-toggle="collapse" data-target="#cpi_python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
+<div id="cpi_python" class="collapse">
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="c"># All items in U.S. city average, all urban consumers, seasonally adjusted</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.bls.gov/publicAPI/v2/timeseries/data/CUSR0000SA0'</span><span class="p">)</span> 
+<span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'Results'</span><span class="p">][</span><span class="s">'series'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">'data'</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">'float'</span><span class="p">)</span>
+
+<span class="c"># See the average price by year</span>
+<span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">'year'</span><span class="p">)[</span><span class="s">'value'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span></code></pre></figure>
+
+</div>
+
+<p><button data-toggle="collapse" data-target="#cpi_r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
+<div id="cpi_r" class="collapse">
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">jsonlite</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># All items in U.S. city average, all urban consumers, seasonally adjusted</span><span class="w">
+</span><span class="n">data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">fromJSON</span><span class="p">(</span><span class="s2">"https://api.bls.gov/publicAPI/v2/timeseries/data/CUSR0000SA0"</span><span class="p">)</span><span class="w"> 
+</span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data</span><span class="p">[[</span><span class="s2">"Results"</span><span class="p">]][[</span><span class="s2">"series"</span><span class="p">]][[</span><span class="s2">"data"</span><span class="p">]][[</span><span class="m">1</span><span class="p">]]</span><span class="w">
+</span><span class="n">df</span><span class="o">$</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">value</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># See the average price by year</span><span class="w">
+</span><span class="n">df</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">group_by</span><span class="p">(</span><span class="n">year</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">summarise</span><span class="p">(</span><span class="n">avg_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">value</span><span class="p">))</span></code></pre></figure>
+
+</div>
+
+  <br>
+  <br>
+
   <h2>US Death Rates and Life Expectancy at Birth (NCHS)</h2>
   <p>This <a href="https://data.cdc.gov/NCHS/NCHS-Death-rates-and-life-expectancy-at-birth/w9j2-ggv5">dataset</a> of U.S. mortality trends since 1900 highlights the differences in age-adjusted death rates and life expectancy at birth by race and sex. This particular dataset has 1,044 observations accounting for year, age, race, sex, average life expectancy in years, and mortality.</p>
 
@@ -370,46 +419,42 @@ The county level dataset has 8 variables/columns and 53,387 rows, which are desc
 <p><button data-toggle="collapse" data-target="#atus_python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
 <div id="atus_python" class="collapse">
 
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
     
-<figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s">'New England'</span>
+         <span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s">'Middle Atlantic'</span>
+         <span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s">'East North Central'</span>
+         <span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s">'West North Central'</span>
+         <span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s">'South Atlantic'</span>
+         <span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="s">'East South Central'</span>
+         <span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="s">'West South Central'</span>
+         <span class="p">,</span> <span class="mi">8</span><span class="p">:</span> <span class="s">'Mountain'</span>
+         <span class="p">,</span> <span class="mi">9</span><span class="p">:</span> <span class="s">'Pacific'</span><span class="p">}</span>
 
-    <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s">'New England'</span>
-             <span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s">'Middle Atlantic'</span>
-             <span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s">'East North Central'</span>
-             <span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s">'West North Central'</span>
-             <span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s">'South Atlantic'</span>
-             <span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="s">'East South Central'</span>
-             <span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="s">'West South Central'</span>
-             <span class="p">,</span> <span class="mi">8</span><span class="p">:</span> <span class="s">'Mountain'</span>
-             <span class="p">,</span> <span class="mi">9</span><span class="p">:</span> <span class="s">'Pacific'</span><span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s">'atuscps_2017.dat'</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">','</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s">'division'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">'GEDIV'</span><span class="p">]</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="n">mapping</span><span class="p">)</span>
 
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s">'atuscps_2017.dat'</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">','</span><span class="p">)</span>
-    <span class="n">df</span><span class="p">[</span><span class="s">'division'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">'GEDIV'</span><span class="p">]</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="n">mapping</span><span class="p">)</span>
-
-    <span class="c"># See number of housing units by geographic division.</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">division</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">HEHOUSUT</span><span class="p">))</span>
-    </code></pre></figure>
+<span class="c"># See number of housing units by geographic division.</span>
+<span class="k">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">division</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">HEHOUSUT</span><span class="p">))</span></code></pre></figure>
 
 </div>
 <p><button data-toggle="collapse" data-target="#atus_r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
 <div id="atus_r" class="collapse">
-    
-    
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="w">    </span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read.csv</span><span class="p">(</span><span class="s2">"atuscps_2017.dat"</span><span class="p">)</span><span class="w">
-    </span><span class="n">df</span><span class="o">$</span><span class="n">GEDIV</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">GEDIV</span><span class="p">)</span><span class="w">
-    </span><span class="n">levels</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">GEDIV</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"New England"</span><span class="w">
-                         </span><span class="p">,</span><span class="w">  </span><span class="s2">"Middle Atlantic"</span><span class="w">
-                         </span><span class="p">,</span><span class="w">  </span><span class="s2">"East North Central"</span><span class="w">
-                         </span><span class="p">,</span><span class="w">  </span><span class="s2">"West North Central"</span><span class="w">
-                         </span><span class="p">,</span><span class="w">  </span><span class="s2">"South Atlantic"</span><span class="w">
-                         </span><span class="p">,</span><span class="w">  </span><span class="s2">"East South Central"</span><span class="w">
-                         </span><span class="p">,</span><span class="w">  </span><span class="s2">"West South Central"</span><span class="w">
-                         </span><span class="p">,</span><span class="w">  </span><span class="s2">"Mountain"</span><span class="w">
-                         </span><span class="p">,</span><span class="w">  </span><span class="s2">"Pacific"</span><span class="p">)</span><span class="w">
 
-    </span><span class="c1"># See number of housing units by geographic division.</span><span class="w">
-    </span><span class="n">table</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">GEDIV</span><span class="p">,</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">HEHOUSUT</span><span class="p">)</span><span class="w">
-    </span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read.csv</span><span class="p">(</span><span class="s2">"atuscps_2017.dat"</span><span class="p">)</span><span class="w">
+</span><span class="n">df</span><span class="o">$</span><span class="n">GEDIV</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">factor</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">GEDIV</span><span class="p">)</span><span class="w">
+</span><span class="n">levels</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">GEDIV</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"New England"</span><span class="w">
+                   </span><span class="p">,</span><span class="w">  </span><span class="s2">"Middle Atlantic"</span><span class="w">
+                   </span><span class="p">,</span><span class="w">  </span><span class="s2">"East North Central"</span><span class="w">
+                   </span><span class="p">,</span><span class="w">  </span><span class="s2">"West North Central"</span><span class="w">
+                   </span><span class="p">,</span><span class="w">  </span><span class="s2">"South Atlantic"</span><span class="w">
+                   </span><span class="p">,</span><span class="w">  </span><span class="s2">"East South Central"</span><span class="w">
+                   </span><span class="p">,</span><span class="w">  </span><span class="s2">"West South Central"</span><span class="w">
+                   </span><span class="p">,</span><span class="w">  </span><span class="s2">"Mountain"</span><span class="w">
+                   </span><span class="p">,</span><span class="w">  </span><span class="s2">"Pacific"</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># See number of housing units by geographic division.</span><span class="w">
+</span><span class="n">table</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">GEDIV</span><span class="p">,</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">HEHOUSUT</span><span class="p">)</span></code></pre></figure>
 
 </div>
 
@@ -666,28 +711,6 @@ Data that is used for publicatoin must be cited. The IPUMS download portal yield
 
 <p><button data-toggle="collapse" data-target="#ipums-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
 <div id="ipums-r" class="collapse">
-
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
-
-</div>
-
-  <br>
-  <br>
-
-  <h2>Bureau of Labor Statistics'  API</h2>
-  <p>The BLS Public Data API gives the public access to economic data from all BLS programs, such as the Consumer Price Index. The API is currently available in two versions, the most recent requiring registration and allows users to access more data more frequently. Both versions return data from published historical time series data in json or xlsx format.
-The data sources available to this API are extensive - covering employment, inflation, spending, pay and more. Knowledge of data series’ codes and formats is necessary for successful use of the API, and ID formats can be found <a href="https://www.bls.gov/help/hlpforma.htm">here</a>. Additionally, the full documentation can be found <a href="https://www.bls.gov/developers/home.htm">here</a></p>
-
-<p><button data-toggle="collapse" data-target="#labor-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
-<div id="labor-python" class="collapse">
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span></code></pre></figure>
-
-</div>
-
-<p><button data-toggle="collapse" data-target="#labor-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
-<div id="labor-r" class="collapse">
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World"</span><span class="p">)</span></code></pre></figure>
 
