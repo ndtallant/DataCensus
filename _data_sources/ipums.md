@@ -3,7 +3,7 @@ title: Integrated Public Use Microdata Series
 tag: Social Science
 ---
 IPUMS is not a collection of compiled statistics; it is composed of microdata. Each record is a person, with all characteristics numerically coded. In most samples persons are organized into households, making it possible to study the characteristics of people in the context of their families or other co-residents. Because the data are individuals and not tables, researchers must use a statistical package to analyze the millions of records in the database. A data extraction system enables users to select only the samples and variables they require. Data is received in a gzip file.
-Data that is used for publicatoin must be cited. The IPUMS download portal yields a data file as well as command files for SAS, SPSS, Stata, and R. Researchers using R are recommended to use the `Ipumsr` package.
+Data that is used for publicatoin must be cited. The IPUMS download portal yields a data file as well as command files for SAS, SPSS, Stata, and R. Researchers using R are recommended to use the `ipumsr` package ([manual](https://cran.r-project.org/web/packages/ipumsr/ipumsr.pdf)).
 
 **Helpful Links:**
 - [Downloading data](https://usa.ipums.org/usa/resources/instruct.pdf)
@@ -15,13 +15,17 @@ Data that is used for publicatoin must be cited. The IPUMS download portal yield
 <div id="ipums-python" class="collapse">
 {% highlight python %}
 import pandas as pd
-print("Hello, World")
+# Download Variables of interest from data portal
+# You can load the data file like any text file
+df = pd.read_table('default.dat')
 {% endhighlight %}
 </div>
 
 <button data-toggle="collapse" data-target="#ipums-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button>
 <div id="ipums-r" class="collapse">
 {% highlight r %}
-print("Hello, World")
+# Download Variables of interest from data portal
+# You can load the data file like any text file
+df <- pd.read_table("default.dat")
 {% endhighlight %}
 </div>
