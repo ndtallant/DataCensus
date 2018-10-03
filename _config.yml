@@ -42,3 +42,7 @@ exclude:
    - vendor/gems/
    - vendor/ruby/
    - researchers/*
+   - LICENSE
+   - jekyll
+   - README.md
+   - PolicyArea
