@@ -9,14 +9,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="This project aims to facilitate the Harris’ mission by creating a resource for sharing policy-relevant datasets that have been accumulated, cleaned up, and purchased by researchers around the University Community." />
 <meta property="og:description" content="This project aims to facilitate the Harris’ mission by creating a resource for sharing policy-relevant datasets that have been accumulated, cleaned up, and purchased by researchers around the University Community." />
-<link rel="canonical" href="/DataCensus/" />
-<meta property="og:url" content="/DataCensus/" />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
 <meta property="og:site_name" content="Data Census" />
 <script type="application/ld+json">
-{"name":"Data Census","description":"This project aims to facilitate the Harris’ mission by creating a resource for sharing policy-relevant datasets that have been accumulated, cleaned up, and purchased by researchers around the University Community.","@type":"WebSite","url":"/DataCensus/","headline":"Data Census","@context":"http://schema.org"}</script>
+{"name":"Data Census","description":"This project aims to facilitate the Harris’ mission by creating a resource for sharing policy-relevant datasets that have been accumulated, cleaned up, and purchased by researchers around the University Community.","@type":"WebSite","url":"http://localhost:4000/","headline":"Data Census","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"><link type="application/atom+xml" rel="alternate" href="/DataCensus/feed.xml" title="Data Census" /></head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Data Census" /></head>
 <body><header class="site-header" role="banner">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/DataCensus/">Data Census</a>
@@ -742,25 +742,6 @@ Data that is used for publicatoin must be cited. The IPUMS download portal yield
   <li><a href="https://uma.pop.umn.edu/usa/user/new?return_url=https%3A%2F%2Fusa.ipums.org%2Fusa-action%2Fextract_requests%2Fdownload">Must Create an account</a></li>
 </ul>
 
-<p><button data-toggle="collapse" data-target="#ipums-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
-<div id="ipums-python" class="collapse">
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
-<span class="c"># Download Variables of interest from data portal</span>
-<span class="c"># You can load the data file like any text file</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s">'default.dat'</span><span class="p">)</span></code></pre></figure>
-
-</div>
-
-<p><button data-toggle="collapse" data-target="#ipums-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
-<div id="ipums-r" class="collapse">
-
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Download Variables of interest from data portal</span><span class="w">
-</span><span class="c1"># You can load the data file like any text file</span><span class="w">
-</span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pd.read_table</span><span class="p">(</span><span class="s2">"default.dat"</span><span class="p">)</span></code></pre></figure>
-
-</div>
-
   <br>
   <br>
 
@@ -825,14 +806,18 @@ Data that is used for publicatoin must be cited. The IPUMS download portal yield
 <div id="nls-python" class="collapse">
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Hello, World!"</span><span class="p">)</span></code></pre></figure>
+<span class="c"># Download Variables of interest from data portal</span>
+<span class="c"># You can load the data file like any text file</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s">'default.dat'</span><span class="p">)</span></code></pre></figure>
 
 </div>
 
 <p><button data-toggle="collapse" data-target="#nls-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
 <div id="nls-r" class="collapse">
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World!"</span><span class="p">)</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Download Variables of interest from data portal</span><span class="w">
+</span><span class="c1"># You can load the data file like any text file</span><span class="w">
+</span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pd.read_table</span><span class="p">(</span><span class="s2">"default.dat"</span><span class="p">)</span></code></pre></figure>
 
 </div>
 

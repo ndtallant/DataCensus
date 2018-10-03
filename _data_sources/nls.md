@@ -17,13 +17,17 @@ The R, SAS, and SPSS files contain code needed to load the data set, as well as 
 <div id="nls-python" class="collapse">
 {% highlight python %}
 import pandas as pd
-print("Hello, World!")
+# Download Variables of interest from data portal
+# You can load the data file like any text file
+df = pd.read_table('default.dat')
 {% endhighlight %}
 </div>
 
 <button data-toggle="collapse" data-target="#nls-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button>
 <div id="nls-r" class="collapse">
 {% highlight r %}
-print("Hello, World!")
+# Download Variables of interest from data portal
+# You can load the data file like any text file
+df <- pd.read_table("default.dat")
 {% endhighlight %}
 </div>
