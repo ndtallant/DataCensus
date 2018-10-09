@@ -9,14 +9,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="This project aims to facilitate the Harris’ mission by creating a resource for sharing policy-relevant datasets that have been accumulated, cleaned up, and purchased by researchers around the University Community." />
 <meta property="og:description" content="This project aims to facilitate the Harris’ mission by creating a resource for sharing policy-relevant datasets that have been accumulated, cleaned up, and purchased by researchers around the University Community." />
-<link rel="canonical" href="http://localhost:4000/" />
-<meta property="og:url" content="http://localhost:4000/" />
+<link rel="canonical" href="/DataCensus/" />
+<meta property="og:url" content="/DataCensus/" />
 <meta property="og:site_name" content="Data Census" />
 <script type="application/ld+json">
-{"@type":"WebSite","url":"http://localhost:4000/","headline":"Data Census","name":"Data Census","description":"This project aims to facilitate the Harris’ mission by creating a resource for sharing policy-relevant datasets that have been accumulated, cleaned up, and purchased by researchers around the University Community.","@context":"http://schema.org"}</script>
+{"@type":"WebSite","url":"/DataCensus/","headline":"Data Census","name":"Data Census","description":"This project aims to facilitate the Harris’ mission by creating a resource for sharing policy-relevant datasets that have been accumulated, cleaned up, and purchased by researchers around the University Community.","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Data Census" /></head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"><link type="application/atom+xml" rel="alternate" href="/DataCensus/feed.xml" title="Data Census" /></head>
 <body><header class="site-header" role="banner">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/DataCensus/">Data Census</a>
@@ -437,24 +437,20 @@ The county level dataset has 8 variables/columns and 53,387 rows, which are desc
       <a id=small_business_administration_survey></a> 
    
   <h2>Small Business Administration Survey (1992)</h2>
-  <p>Small Business Administration Survey (1992)</p>
+  <p>https://www.sba.gov/category/advocacy-navigation-structure/research-and-statistics</p>
 
 <p><button data-toggle="collapse" data-target="#sba-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
 <div id="sba-python" class="collapse">
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
-<span class="c1"># Download Variables of interest from data portal
-# You can load the data file like any text file
-</span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s">'default.dat'</span><span class="p">)</span></code></pre></figure>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s">'default.dat'</span><span class="p">)</span></code></pre></figure>
 
 </div>
 
 <p><button data-toggle="collapse" data-target="#sba-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
 <div id="sba-r" class="collapse">
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Download Variables of interest from data portal</span><span class="w">
-</span><span class="c1"># You can load the data file like any text file</span><span class="w">
-</span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pd.read_table</span><span class="p">(</span><span class="s2">"default.dat"</span><span class="p">)</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pd.read_table</span><span class="p">(</span><span class="s2">"default.dat"</span><span class="p">)</span></code></pre></figure>
 
 </div>
 
@@ -812,26 +808,7 @@ These data are from a variety of sources and cover varying years and geographic 
       <a id=general_social_survey></a> 
    
   <h2>General Social Survey (GSS)</h2>
-  <p>http://gss.norc.org/About-The-GSS</p>
-
-<p><button data-toggle="collapse" data-target="#gss-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
-<div id="gss-python" class="collapse">
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
-<span class="c1"># Download Variables of interest from data portal
-# You can load the data file like any text file
-</span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s">'default.dat'</span><span class="p">)</span></code></pre></figure>
-
-</div>
-
-<p><button data-toggle="collapse" data-target="#gsss-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
-<div id="gss-r" class="collapse">
-
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Download Variables of interest from data portal</span><span class="w">
-</span><span class="c1"># You can load the data file like any text file</span><span class="w">
-</span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pd.read_table</span><span class="p">(</span><span class="s2">"default.dat"</span><span class="p">)</span></code></pre></figure>
-
-</div>
+  <p>The GSS gathers data on contemporary American society in order to monitor and explain trends and constants in attitudes, behaviors, and attributes. The survey contains a standard core of demographic, behavioral, and attitudinal questions, plus topics of special interest. Among the topics covered are civil liberties, crime and violence, intergroup tolerance, morality, national spending priorities, psychological well-being, social mobility, and stress and traumatic events. The data is available for SPSS and STATA <a href="http://gss.norc.org/Get-The-Data">here</a>.</p>
 
   <br>
   <br>
@@ -900,7 +877,9 @@ Data that is used for publicatoin must be cited. The IPUMS download portal yield
       <a id=NHSLS></a> 
    
   <h2>National Health and Social Life Survey, 1992</h2>
-  <p>https://www.icpsr.umich.edu/icpsrweb/HMCA/studies/6647</p>
+  <p>The purpose of this study was to collect extensive information on the sexual experiences and other social, demographic, attitudinal, and health-related characteristics of adults in the United States. The survey collected information on sexual practices with spouses/cohabitants and other sexual partners and collected background information about the partners. Major areas of investigation include sexual experiences such as number of sexual partners in given time periods, frequency of particular practices, and timing of various sexual events. The data cover childhood and adolescence, as well as adulthood. Other topics in the survey relate to sexual victimization, marriage and cohabitation, and fertility. Respondents were also queried about their physical health, including history of sexually transmitted diseases. Respondents’ attitudes toward premarital sex, the appeal of particular practices such as oral sex, and levels of satisfaction with particular sexual relationships were also studied. Demographic items include race, education, political and religious affiliation, income, and occupation.</p>
+
+<p>The codebook can be found <a href="https://www.icpsr.umich.edu/icpsrweb/HMCA/studies/6647/datadocumentation#">here</a>.</p>
 
 <p><button data-toggle="collapse" data-target="#nhsls-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
 <div id="nhsls-python" class="collapse">
