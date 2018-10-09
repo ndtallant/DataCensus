@@ -3,6 +3,9 @@ layout: default
 ---
 
 {% for data in site.data_sources %}
+  {% if data.anchor %} 
+      <a id={{ data.anchor }}></a> 
+  {% endif %} 
   <h2>{{ data.title }}</h2>
   {{ data.content }}
   <br>
