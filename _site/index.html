@@ -437,20 +437,26 @@ The county level dataset has 8 variables/columns and 53,387 rows, which are desc
       <a id=small_business_administration_survey></a> 
    
   <h2>Small Business Administration Survey (1992)</h2>
-  <p>https://www.sba.gov/category/advocacy-navigation-structure/research-and-statistics</p>
+  <p><em>Description</em></p>
+
+<p><a href="https://harris.uchicago.edu/files/sbaraw-s1.dta">Survey 1 Download</a>
+<a href="https://harris.uchicago.edu/files/sba-i-questionnaire.pdf">Documentation</a></p>
+
+<p><a href="https://harris.uchicago.edu/files/sbaraw-s2.dta">Survey 2 Download</a>
+<a href="https://harris.uchicago.edu/files/sba-2-employer_survey.pdf">Documentation</a></p>
 
 <p><button data-toggle="collapse" data-target="#sba-python" type="button" class="btn btn-secondary btn-lg btn-block">Example in Python</button></p>
 <div id="sba-python" class="collapse">
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s">'default.dat'</span><span class="p">)</span></code></pre></figure>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s">'sbaraw-s1.dta'</span><span class="p">)</span></code></pre></figure>
 
 </div>
 
 <p><button data-toggle="collapse" data-target="#sba-r" type="button" class="btn btn-secondary btn-lg btn-block">Example in R</button></p>
 <div id="sba-r" class="collapse">
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pd.read_table</span><span class="p">(</span><span class="s2">"default.dat"</span><span class="p">)</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pd.read_table</span><span class="p">(</span><span class="s2">"sbaraw-s1.dta"</span><span class="p">)</span></code></pre></figure>
 
 </div>
 

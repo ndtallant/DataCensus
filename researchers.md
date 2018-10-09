@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Researchers 
+title: Researchers (Beta) 
 permalink: /researchers/
 ---
 
