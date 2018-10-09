@@ -4,7 +4,7 @@ tag: Economic
 anchor: small_business_administration_survey 
 ---
 
-*Description*
+The Small Business Administration Survey records general charactersitics of small businesses in the United States, such as the number of employees, industry, number of locations, paid wages, etc. It also considers the demographic information of owners, such as marital status and ethnicity. The data provided below is for the year of 1992. 
 
 [Survey 1 Download](https://harris.uchicago.edu/files/sbaraw-s1.dta)
 | [Documentation](https://harris.uchicago.edu/files/sba-i-questionnaire.pdf)
