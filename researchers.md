@@ -6,8 +6,8 @@ permalink: /researchers/
 
 ### Dan Black
 - Demographics of the gay and lesbian population in the United States: Evidence from available systematic data sources
-    - Data: General Social Survey (GSS)
-	- Data: National Health and Social Life Survey (NHSLS)
+    - Data: [General Social Survey (GSS)](/DataCensus/#general_social_survey)
+	- Data: [National Health and Social Life Survey (NHSLS)](/DataCensus/#NHSLS)
     - Data: U.S. Census (1999)
 - How robust is the evidence on the effects of college quality? Evidence from matching
     - Data: [National Longitudinal Survey of Youth (1979)](/DataCensus/#national_longitudinal_surveys)
