@@ -2,8 +2,9 @@
 title: National Longitudinal Surveys (NLS)
 tag: Social Science
 ---
+<a id="#national_longitudinal_surveys">
 Information on the labor market activities and other significant life events of several groups of men and women at multiple points in time. For more than 4 decades, NLS data have served as an important tool for economists, sociologists, and other researchers.The NLS program includes the following cohorts :
-
+</a>
 - [NLS Youth 1997 (NLSY97)](https://www.nlsinfo.org/content/cohorts/nlsy97): Respondents were ages 12-17 when first interviewed in 1997. 
 - [NLS Youth 1979 (NLSY79)](https://www.nlsinfo.org/content/cohorts/nlsy79): Respondents were ages 14-22 when first interviewed in 1979. 
 - [NLSY79 Children and Young Adults](https://www.nlsinfo.org/content/cohorts/nlsy79-children): Assessments of biological children of women in the NLSY79, starting in 1986.
